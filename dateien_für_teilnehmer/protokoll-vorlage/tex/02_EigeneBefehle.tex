@@ -1,0 +1,29 @@
+% Autor: Simon May
+% Datum: 2017-10-05
+
+% Eigene Befehle eignen sich gut, um Abkürzungen für lange Befehle zu erstellen.
+% So vermeidet man, dass man immer wieder dasselbe Konstrukt kopieren und
+% einfügen muss und, wenn man dann doch etwas ändern will, an zahllosen Stellen
+% im Dokument dieselbe Änderung vornehmen muss.
+% Die Syntax ist die folgende:
+% \newcommand{neuer Befahl}[Anzahl Parameter (optional)]{Inhalt}
+% Das folgende Beispiel fügt ein Bild mit bestimmten vorgegebenen Optionen ein:
+\newcommand{\centeredImage}[1]{
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{#1}
+	\end{figure}
+}
+% #1 ist dabei ein Parameter, den man \centeredImage übergeben muss, also:
+% \centeredImage{...}
+% Benötigt man keine Parameter, dann lässt man [1] weg. Werden zusätzliche
+% Parameter benötigt, dann kann man die Zahl auf maximal 9 erhöhen.
+
+% Ein Befehl, um eine E-Mail-Adresse darzustellen bzw. automatisch zu verlinken
+\newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
+
+% \arsinh etc.
+\newcommand*{\arsinh}{\operatorname{arsinh}}
+\newcommand*{\arcosh}{\operatorname{arcosh}}
+\newcommand*{\artanh}{\operatorname{artanh}}
+\newcommand*{\const}{\text{const.}}

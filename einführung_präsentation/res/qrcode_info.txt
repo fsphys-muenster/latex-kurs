@@ -1,1 +1,4 @@
-QR-Code erstellt auf qr-code-generator.com und anschließend in Inkscape vektorisiert.
+QR-Code erstellt mit qtqr (https://wiki.ubuntuusers.de/QtQR/) und anschließend
+in Inkscape vektorisiert.
+Fehlerkorrektur-Einstellung: „Highest“
+

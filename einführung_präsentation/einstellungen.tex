@@ -1,9 +1,10 @@
+% Autor: Simon May
+% Datum: 2017-10-04
 \usepackage[no-math]{fontspec}
 \usepackage{polyglossia}
 \setdefaultlanguage{german}
 
 \usepackage{silence}
-\WarningFilter{csquotes}{Using preliminary 'polyglossia' interface.}
 % biblatex-Warnung harmlos, footnote-patching wird nur für „ibid“-Stile gebraucht
 % vgl. https://tex.stackexchange.com/questions/202988/beamer-patching-footnotes-warning
 %      https://tex.stackexchange.com/questions/108511/gb4e-biblatex-error-patching-footnotes-failed
@@ -13,15 +14,11 @@
 \usepackage{selnolig}
 
 \usepackage{xcolor}
+\usepackage{graphicx}
 \usepackage{gincltex}
-\usepackage{wrapfig}
 \usepackage{grffile}
-% subcaption (noch?) inkompatibel mit beamer!
-% => „compatibity=false“ für subcaption-Paket notwending
-% Hier als Ersatz subfig mit „caption=false“ verwendet
-% vgl. https://tex.stackexchange.com/questions/125579/subcaption-with-beamer
-%      https://tex.stackexchange.com/questions/31906/subcaption-package-compatibility-issue
-\usepackage[caption=false]{subfig}
+\usepackage{wrapfig}
+\usepackage{subcaption}
 
 \usepackage{hologo}
 \usepackage{csquotes}
@@ -41,7 +38,7 @@
 
 
 % --- Beamer-Einstellungen
-\usefonttheme{serif} % only math
+\usefonttheme[onlymath]{serif}
 \setbeamertemplate{caption}[numbered]
 \usetheme[secheader]{Boadilla}
 \beamertemplatenavigationsymbolsempty
@@ -51,8 +48,8 @@
 \MakeOuterQuote{"}
 % -- hyperref
 % nur URLs einfärben
-\colorlet{linkcolor}{blue!35!black}
-\hypersetup{unicode, colorlinks, linkcolor=, urlcolor=linkcolor}
+\colorlet{linkcolor}{blue!50!black}
+\hypersetup{unicode, colorlinks, linkcolor=, citecolor=, urlcolor=linkcolor}
 % -- siunitx
 \sisetup{
 	locale=DE,
@@ -62,7 +59,8 @@
 	fraction-function=\sfrac,
 	detect-all
 }
-% Notwendig, damit das \micro (µ) die richtige Schriftart hat
+% Notwendig, damit das \micro (µ) die richtige Schriftart hat und die
+% Serifenschrift für siunitx verwendet wird
 \AtBeginDocument{\sisetup{math-rm=\mathrm, text-rm=\rmfamily}}
 % -- tikz
 \usetikzlibrary{shapes.geometric,tikzmark,fit}

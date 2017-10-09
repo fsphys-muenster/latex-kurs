@@ -1,6 +1,6 @@
 % LaTeX-Vorlage für Versuchsprotokolle
 % Autor: Simon May
-% Datum: 2016-10-13
+% Datum: 2017-10-05
 
 % Es gibt die Dokumenttypen scrartcl („Artikel“), scrreprt („Bericht“),
 % scrbook („Buch“) und scrlttr2 („Brief“). Diese gehören zum KOMA-Script,
@@ -8,72 +8,36 @@
 % deutsche Texte benutzt werden.
 % Natürlich gibt es noch weitere Klassen, z.B. beamer für Präsentationen.
 \documentclass[
-	% Sprache für z.B. Babel
-	ngerman,
-	% Papierformat
-	a4paper,
-	% Einseitig
-	oneside,
-	% Zweiseitig
-	%twoside,
-	% Zweispaltig
-	%twocolumn,
-	% Schriftgröße (beliebige Größen mit „fontsize=Xpt“)
-	12pt,
-	% schreibt die Papiergröße korrekt ins Ausgabedokument
-	pagesize,
-	% größere Kopfzeile (wegen LaTeX-Warnung)
-	headlines=1.4,
-	% Literaturverzeichnis unnummeriert im Inhaltsverzeichnis aufführen
-	toc=bibliography,
-	% Abbildungsverzeichnis etc. unnummeriert im Inhaltsverzeichnis aufführen
-	toc=listof,
-	% \caption bei Tabellen immer als Überschrift setzen
-	captions=tableheading,
-	automark
+	a4paper,                % Papierformat (DIN A4)
+	titlepage=firstiscover, % Separate Titelseite
+	captions=tableheading,  % \caption bei Tabellen immer als Überschrift setzen
+	toc=bibliography,       % Literaturverzeichnis im Inhaltsverzeichnis aufführen
+	toc=listof,             % Abbildungsverzeichnis etc. im Inhaltsverzeichnis aufführen
+	oneside,                % Einseitig
+	%twoside,               % Zweiseitig
+	%twocolumn,             % Zweispaltig
+	automark,               % Abschnittstitel automatisch in Kopfzeile einfügen
+	12pt,                   % Schriftgröße (beliebige Größen mit „fontsize=Xpt“)
+	english, ngerman,       % Sprache für z.B. Babel; ausgewählt: ngerman (letztgenannt)
+	%draft=true             % Entwurf-Modus; markiert zu lange und zu kurze Zeilen
 ]{scrartcl}
 
 % --- Pakete einbinden
-\input{tex_files/01_PaketeEinstellungen.tex}
+\input{tex/01_PaketeEinstellungen.tex}
 
 % --- Eigene Befehle einbinden
-\input{tex_files/02_EigeneBefehle.tex}
+\input{tex/02_EigeneBefehle.tex}
 
 % --- Variablen importieren
-\input{tex_files/03_Variablen.tex}
+\input{tex/03_Variablen.tex}
 \newboolean{showEmail}
-\setboolean{showEmail}{\varShowEmail}
+\setboolean{showEmail}{\varZeigeEmail}
 \newboolean{showHeader}
-\setboolean{showHeader}{\varShowHeader}
+\setboolean{showHeader}{\varZeigeKopfzeile}
 \newboolean{showTOC}
-\setboolean{showTOC}{\varShowTOC}
+\setboolean{showTOC}{\varZeigeInhaltsverzeichnis}
 \newboolean{showBibliography}
-\setboolean{showBibliography}{\varShowBibliography}
-
-% Kopf- und Fußzeile konfigurieren
-\ifthenelse{\boolean{showHeader}}{
-	\KOMAoptions{headsepline, DIV=current}
-	% Innenseite der Kopfzeile
-	\ihead{\headmark}
-	% Mitte der Kopfzeile
-	\chead{}
-	% Außenseite der Kopfzeile
-	\ohead{\varAuthor}
-}{}
-% Innnenseite der Fußzeile
-\ifoot{}
-% Mitte der Fußzeile
-\cfoot{- {\pagemark} -}
-% Außenseite der Fußzeile
-\ofoot{}
-
-% Metadaten für die PDF-Datei
-\hypersetup{
-	pdftitle={Versuchsprotokoll: \varName},
-	pdfauthor={\varAuthor},
-	pdfsubject={Grundpraktikum},
-	pdfkeywords={Physik, Münster, Praktikum, Versuchsprotokoll}
-}
+\setboolean{showBibliography}{\varZeigeLiteraturverzeichnis}
 
 \begin{document}
 
@@ -83,8 +47,10 @@
 \pagestyle{scrplain}
 
 % --- Titelseite einbinden
-\IfFileExists{tex_files/04_Titelseite.tex}{
-	\input{tex_files/04_Titelseite.tex}
+%     Falls die Datei „res/titelbild.pdf“ existiert, wird sie auf der Titelseite
+%     eingefügt
+\IfFileExists{tex/04_Titelseite.tex}{
+	\input{tex/04_Titelseite.tex}
 }{}
 
 % --- Inhaltsverzeichnis einbinden
@@ -94,21 +60,20 @@
 }{}
 
 % Zurücksetzen der Seitenzahlen auf arabische Ziffern
-\setcounter{page}{1}
 \pagenumbering{arabic}
 % Ab hier mit Kopf- und Fußzeile
 \pagestyle{scrheadings}
 
 % --- Den Inhalt der Arbeit einbinden
-\input{tex_files/10_Inhalt.tex}
+\input{tex/10_Inhalt.tex}
 
 % --- Anhang einbinden
-\IfFileExists{tex_files/20_Anhang.tex}{
+\IfFileExists{tex/20_Anhang.tex}{
 	\clearpage
 	\appendix
 	\section{Anhang}
 	\label{sec:anhang}
-	\input{tex_files/20_Anhang.tex}
+	\input{tex/20_Anhang.tex}
 }{}
 
 % --- Literaturverzeichnis mit BibLaTeX

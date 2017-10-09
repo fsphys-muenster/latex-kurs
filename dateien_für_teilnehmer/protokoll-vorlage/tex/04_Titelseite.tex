@@ -1,0 +1,28 @@
+% Autor: Simon May
+% Datum: 2017-10-05
+
+% Befehl, um die E-Mail-Adressen auf der Titelseite darzustellen
+\makeatletter
+\newcommand*{\protokollemailparse}[1]{%
+	\@for\@tempa:=#1\do{%
+		\normalsize\email{\@tempa}\\
+	}%
+}
+\makeatother
+
+\title{Versuchsprotokoll \varNum}
+\subtitle{\varName}
+\subject{Experimentelle Übungen~I}
+\date{\DTMdate{\varDatum}}
+\ifthenelse{\boolean{showEmail}}{%
+	\author{\varAutor\\\normalsize\varGruppe\\\protokollemailparse{\varEmail}}%
+}{%
+	\author{\varAutor\\\normalsize\varGruppe}%
+}
+% Falls die Datei „res/titelbild.pdf“ existiert, wird sie hier eingefügt
+\IfFileExists{res/titelbild.pdf}{
+	\publishers{\vspace{2ex}\includegraphics[width=0.75\textwidth]{res/titelbild.pdf}}
+}{}
+
+\maketitle
+

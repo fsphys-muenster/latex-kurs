@@ -1,41 +1,43 @@
-% Aufgaben für den LaTeX-Kurs (2015-08-07)
+% Aufgaben für den LaTeX-Kurs (2017-10-06)
 % Autor: Simon May
-% Datum: 2015-08-07
+% Datum: 2017-10-04
 
-\documentclass[a4paper, 12pt, headsepline, pagesize, parskip=half-, headlines=3.1]{scrartcl}
+\documentclass[a4paper, 12pt, headsepline, parskip=half-, headlines=3.1]{scrartcl}
 
-\usepackage{fontspec}
-\defaultfontfeatures{Ligatures=TeX}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\usepackage{unicode-math}
 \usepackage{polyglossia}
 \setdefaultlanguage{german}
 
-\usepackage[intlimits]{amsmath}
-\usepackage{newunicodechar}
-\input{pdflatex_unicode-math.tex}
-
 \usepackage{selnolig}
 \usepackage{microtype}
-\usepackage{xcolor}
 \usepackage{scrlayer-scrpage}
 \usepackage{lastpage}
-\usepackage{datetime}
+\usepackage[useregional]{datetime2}
+
 \usepackage{csquotes}
 \usepackage{siunitx}
 \usepackage{enumitem}
+\usepackage{xcolor}
 \usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{grffile}
 \usepackage{float}
 \usepackage{listingsutf8}
 \usepackage[backend=biber, style=verbose]{biblatex}
 \usepackage{xfrac}
 \usepackage{subcaption}
 
-\usepackage[unicode]{hyperref}
+\usepackage[unicode, pdfusetitle]{hyperref}
 \usepackage{cleveref}
 
 % --- Paket-Einstellungen
 % -- latex
 \widowpenalty=9000
 \clubpenalty=9000
+\removenolimits{\int}
 % -- koma
 \setkomafont{pageheadfoot}{\normalfont}
 \addtokomafont{pagefoot}{\small}
@@ -57,8 +59,6 @@
 	quotient-mode=fraction,
 	per-mode=fraction,
 	fraction-function=\sfrac,
-	math-micro=\text{µ},
-	text-micro=µ
 }
 % -- listings
 \input{einstellungen_listings.tex}
@@ -72,11 +72,11 @@
 \newenvironment{aufgabe*}[1][]{\stepcounter{aufgabe}
 \noindent\textbf{Aufgabe \arabic{aufgabe}.} #1}{\bigskip}
 
-\begin{document}
-
 \title{Einführung in \LaTeX: Aufgaben}
 \author{Simon May\\\email{simon.may@uni-muenster.de}}
-\date{\formatdate{7}{8}{2015}}
+\date{\DTMdate{2017-10-06}}
+
+\begin{document}
 
 \maketitle
 
@@ -223,7 +223,7 @@
 	\emph{Hinweis:} Mit dem Befehl\\
 	\lstinline!\multicolumn{<spaltenzahl>}{<neue_spalte>}{Text...}! lassen sich Spalten zusammenfassen.
 
-	\emph{Hinweis:} Zur einfacheren Eingabe gibt es z.\,B.\ in TeXStudio die Option "Wizards $→$ Quick Tabular…"
+	\emph{Hinweis:} Zur einfacheren Eingabe gibt es z.\,B.\ in TeXStudio die Option "Assistenten $→$ Tabellen-Assistent…"
 	\item Cyclohexan:
 	
 	\begin{tabular}{S S}
@@ -269,6 +269,7 @@
 	\includegraphics[width=5cm, angle=\kursangle]{res/answer.jpg}
 	
 	\emph{Hinweis:} Der Winkel ist \SI{\kursangle}{\degree}.
+	\medskip
 	\item Erstellt die folgende Abbildung mit Unterabbildungen\\
 	(zweites Bild: \texttt{8bit\_mario.png}):
 	
@@ -290,17 +291,26 @@
 	\item Erzeugt den folgenden Text mit eingebettetem Bild (\texttt{logo.pdf}):
 \end{aufgabe}
 
-
+\vspace{-2ex}
 \enlargethispage{\baselineskip}
 
-Passend zum Internationalen Jahr des Lichts hat die Fachschaft Physik mit Herrn Prof.\ Dr.\ Michael Rohlfing den Lehrenden ausgezeichnet, der im vergangenen Jahr den Studierenden Elektromagnetismus, Optik und die spezielle Relativitätstheorie, also die Physik des Lichts, näher bringen konnte.
+Die Auszeichnung der Fachschaft ging dieses Jahr an Herrn Prof.\ Dr.~Alfons Khoukaz für die Vorlesungsreihe Kern- und Teilchenphysik, welche aus einer Einführungsvorlesung im 5.~Semester und einer fortgeschrittenen Vorlesung für Masterstudenten besteht.
 
 \begin{wrapfigure}{r}{0cm}
 	\centering
 	\includegraphics[width=9cm]{res/logo.pdf}
 	\caption{Das Logo der Fachschaft Physik der Westfälischen Wilhelms-Universität Münster.}
 \end{wrapfigure}
-Das Lehrpreiskomitee hatte an der Spitze mit viel Licht zu kämpfen und musste zwischen sehr guten Evaluationen in Spezialvorlesungen und auch sehr guten Evaluationsergebnissen in großen Vorlesungen abwägen. Das Komitee hat sich entschieden, den Lehrpreis dieses Jahr für besondere Leistungen in einer großen Einführungsvorlesung zu vergeben. Von den Studierenden wurde deutlich hervorgehoben, dass die Struktur der Vorlesung sehr schlüssig und die Erklärungen hilfreich waren. So kommentiert Fachschaftler Friedrich Bach: „Das Lehrpreiskomitee war überrascht, dass die Studierenden die Vorlesung so gut bewertet haben, obwohl es für viele Studierende eine der schwersten Vorlesungen im Studium ist.“
+Da es am Fachbereich viele sehr gute Dozenten gibt, fiel die Entscheidung auch dieses Jahr wieder nicht leicht.
+Das Lehrpreiskomitee musste viele Kriterien gegeneinander abwägen und hat sich dieses Jahr erstmals für eine Master-Veranstaltung entschieden.
+Ebenso wurde erstmals eine ganze Vorlesungsreihe ausgezeichnet.
+Der Preisträger überzeugte durch über Jahre hinweg konstant herausragende Evaluationsergebnisse sowie durch eine nahezu perfekt ausgefallene Evaluation in der diesjährigen Vorlesung "Kern- und Teilchenphysik~II".
+
+\enlargethispage{\baselineskip}
+
+Herr Prof.\ Dr.~Alfons Khoukaz ist Dozent am Institut für Kernphysik und Mitglied des Graduiertenkollegs "Starke und schwache Wechselwirkung".
+Zu den Forschungsschwerpunkten seiner Arbeitsgruppe zählt die Mesonenproduktion in verschiedenen Stoßprozessen, was zu einem verbesserten Verständnis der starken Wechselwirkung sorgen soll.
+Hierzu ist die Gruppe an einer Reihe von Experimenten beteiligt, etwa PANDA, BESIII und COSY.
 
 \begin{aufgabe}[Erzeugt folgende Werte mit \texttt{siunitx}:]
 	\item \SI{12345,67890}{\ohm}
@@ -308,13 +318,11 @@ Das Lehrpreiskomitee hatte an der Spitze mit viel Licht zu kämpfen und musste z
 	\item \SI{.3e45}{\m\cubed}
 	\item \num{1.654 x 2.34 x 8,99}
 	\item \SI{1,793 +- 0,026}{\micro\F}
-	\WarningFilter{latexfont}{Font shape}
-	\item \SI{9,81+-0,52}{\m\per\s\squared}
-	\DeactivateWarningFilters
+	\item \SI{9,81 +- 0,52}{\m\per\s\squared}
 \end{aufgabe}
 
 \begin{aufgabe*}
-	Zitiert den Nolting 4\footcite{nolting4} und den Demtröder 1\footcite{demtröder1} im Dokument und erstellt das Literaturverzeichnis (\lstinline!\printbibliography!)!
+	Zitiert den Nolting~4\footcite{nolting4} und den Demtröder~1\footcite{demtröder1} im Dokument und erstellt das Literaturverzeichnis (\lstinline!\printbibliography!)!
 \end{aufgabe*}
 
 \begin{aufgabe*}
@@ -331,22 +339,20 @@ Die nötigen Bilder findet ihr im Ordner \texttt{beispielprotokoll\_bilder}.
 
 \begin{aufgabe*}
 	Erzeugt die Datei \texttt{prony.pdf} mit gnuplot!
-	
-	\enlargethispage{\baselineskip}
+
 	\emph{Hinweise}:
 	\begin{itemize}
 		\item Die Messwerte befinden sich in der Datei \texttt{prony.csv}.
 		\item Ihr dürft konstante Werte für die Fehlerbalken auf der $η$-Achse wählen!
 		\item Nutzt die folgenden Formeln und Werte, um den Wirkungsgrad $η$ zu berechnen:
 		\begin{align*}
-			P_\text{el} &= \num{14,6} ⋅ \num{0,048} ⋅ \frac{1000}{3} \si{\W} \\
-			r &= \SI{0,5}{\m} \\
+			P_\text{el} &= \num{14,6} ⋅ \num{0,048} ⋅ \frac{1000}{3} \si{\W} &
 			P &= 2πfFr \\
+			r &= \SI{0,5}{\m} &
 			η &= \frac{P}{P_\text{el}}
 		\end{align*}
 		\item Die Ausgleichskurve ist eine Parabel.
 	\end{itemize}
 \end{aufgabe*}
-
 
 \end{document}

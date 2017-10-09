@@ -1,8 +1,9 @@
-% Einführungs-Vorlesung für den LaTeX-Kurs (2016-10-14)
+% Einführungs-Vorlesung für den LaTeX-Kurs (2017-10-06)
 % Autor: Simon May
-% Datum: 2016-10-13
+% Datum: 2017-10-04
 
 \input{einstellungen.tex}
+\vfuzz=6pt
 
 \addbibresource{res/literatur.bib}
 
@@ -11,7 +12,7 @@
 \subject{\LaTeX-Kurs}
 \author[Simon May]{Simon May\texorpdfstring{\\}{, }\email{simon.may@uni-muenster.de}}
 \institute{Fachschaft Physik}
-\date{\DTMdate{2016-10-14}}
+\date{\DTMdate{2017-10-06}}
 \titlegraphic{\includegraphics[width=5cm]{res/logo.pdf}}
 \keywords{Physik, Münster, Praktikum, Protokoll, LaTeX}
 
@@ -23,11 +24,11 @@
 	\begin{center}
 		{\Large
 		\strong{Wichtig:} Wenn es Fragen gibt – fragen!
-		
+
 		\medskip
 		Wenn es zu schnell geht – Bescheid sagen!
 		\par}
-		
+
 		\bigskip
 		Der Inhalt ist wegen der geringen Zeit komprimiert, d.\,h.\ man kann sich zunächst etwas überwältigt fühlen…
 	\end{center}
@@ -282,7 +283,7 @@
 		\item Nach Fehlermeldung suchen; oft hilfreich: \url{https://tex.stackexchange.com}
 		\item Manchmal steckt der Fehler in (alten) Hilfsdateien! Ohne Bedenken löschbar (einzig wichtige Datei: \texttt{.tex})
 		\item Letzter Ausweg: Zeile für Zeile auskommentieren (\lstinline!%!), bis es fehlerfrei kompiliert
-		\textrightarrow~problematische Stellen finden
+		$\rightarrow$~problematische Stellen finden
 		\item Manchmal erkennt man auch an der (halb-)fertigen PDF, wo der Fehler ist
 	\end{itemize}
 \end{frame}
@@ -315,7 +316,7 @@
 	\begin{itemize}
 		\item Textgröße: \lstinline!\tiny \scriptsize \footnotesize \small \normalsize \large \Large \LARGE \huge \Huge!
 		
-		(Achtung: Textgröße gilt, bis sie wieder geändert wird \textrightarrow\ Gruppierung \lstinline!{...}! verwenden!)
+		(Achtung: Textgröße gilt, bis sie wieder geändert wird $\rightarrow$~Gruppierung \lstinline!{...}! verwenden!)
 		
 		{\rmfamily
 		\tiny tiny \scriptsize scriptsize \footnotesize footnotesize \small small \normalsize normalsize \large large \Large Large \LARGE LARGE \huge huge \Huge Huge}
@@ -399,7 +400,7 @@
 			\item \lstinline!\subparagraph{Unterabsatz}!
 		\end{itemize}
 		\item Überschriften werden automatisch nummeriert und dem Inhaltsverzeichnis hinzugefügt. Möchte man beides nicht, kann man \lstinline!*! anhängen (z.B.\ \lstinline!\section*{Text}!)
-		\item \lstinline!\input{datei.tex}!: Die Datei wird exakt an der Stelle in das Dokument eingefügt \textrightarrow\ Übersichtlichkeit im Quelltext!
+		\item \lstinline!\input{datei.tex}!: Die Datei wird exakt an der Stelle in das Dokument eingefügt $\rightarrow$\ Übersichtlichkeit im Quelltext!
 	\end{itemize}
 \end{frame}
 
@@ -440,10 +441,10 @@
 		\end{equation}
 		\item \lstinline!a^n! ergibt $a^n$
 		\item \lstinline!n_i! ergibt $n_i$
-		\item Was ist mit \lstinline!U_ind!? \textrightarrow\ $U_ind$
+		\item Was ist mit \lstinline!U_ind!? $\rightarrow$\ $U_ind$
 		\begin{itemize}
-			\item Klammern setzen!\footnote<.->{\lstinline!^! und \lstinline!_! sind eigentlich Befehle; ohne Klammern wird das nächste Zeichen als Parameter verwendet.} \lstinline!U_{ind}! \textrightarrow~$U_{ind}$
-			\item Noch besser: \lstinline!U_\text{ind}! \textrightarrow~$U_\text{\rmfamily ind}$
+			\item Klammern setzen!\footnote<.->{\lstinline!^! und \lstinline!_! sind eigentlich Befehle; ohne Klammern wird das nächste Zeichen als Parameter verwendet.} \lstinline!U_{ind}! $\rightarrow$~$U_{ind}$
+			\item Noch besser: \lstinline!U_\text{ind}! $\rightarrow$~$U_\text{\rmfamily ind}$
 		\end{itemize}
 		\item \lstinline!\frac{a}{b}! ergibt $\displaystyle\frac{a}{b}$
 		\item \lstinline!\cdot! ist der Malpunkt $\cdot$ (\emph{nicht} \lstinline!*! verwenden!), \lstinline!\times! das Kreuz $\times$
@@ -457,12 +458,14 @@
 		\item \lstinline!\dot{r}! ergibt $\dot{r}$, \lstinline!\ddot{r}! ergibt $\ddot{r}$
 		\item Griechische Buchstaben: "\lstinline!\!" + Name des Buchstabens
 		\begin{itemize}
-			\item Anfangsbuchstabe klein: kleiner Buchstabe; \lstinline!\gamma! \textrightarrow\ $\gamma$
-			\item Anfangsbuchstabe groß: großer Buchstabe; \lstinline!\Gamma! \textrightarrow\ $\Gamma$
+			\item Anfangsbuchstabe klein: kleiner Buchstabe; \lstinline!\gamma! $\rightarrow$\ $\gamma$
+			\item Anfangsbuchstabe groß: großer Buchstabe; \lstinline!\Gamma! $\rightarrow$\ $\Gamma$
 		\end{itemize}
 		\item Warum gibt es kein \lstinline!\Alpha!?
-		\item \lstinline!\sum_{n = 0}^{\infty}! \textrightarrow\ $\displaystyle\sum_{n=0}^{\infty}$, \lstinline!\int_{-\infty}^{\infty}! \textrightarrow\ $\displaystyle\int_{-\infty}^{\infty}$
-		\item Komplizierteres Beispiel:\footnote<.->{\texttt{\textbackslash begin\{equation*\}}: Wie \texttt{\textbackslash begin\{equation\}}, aber ohne Nummer (vgl.\ \texttt{\textbackslash section*\{\}}).}
+		\item \lstinline!\sum_{n = 0}^{\infty}!
+		$\rightarrow$~$\displaystyle\sum_{n=0}^{\infty}$, \lstinline!\int_{-\infty}^{\infty}!
+		$\rightarrow$~$\displaystyle\int_{-\infty}^{\infty}$
+		\item Komplizierteres Beispiel:\footnote<.->{\texttt{\textbackslash begin\{equation*\}}: Wie \texttt{\textbackslash begin\{equation\}}, aber ohne Nummer (vgl.~\texttt{\textbackslash section*\{\}}).}
 		\begin{lstlisting}
 		\begin{equation*}
 		    \vec{F} = -G \cdot \frac{m_1 m_2 \vec{r}}{r^3}
@@ -476,10 +479,13 @@
 
 \begin{frame}[<+->][fragile]
 	\begin{itemize}
-		\item Klammern: \lstinline!(\frac{U}{I})! \textrightarrow~$\displaystyle(\frac{U}{I})$ \textrightarrow~Schlecht!
+		\item Klammern: \lstinline!(\frac{U}{I})!
+		$\rightarrow$~$\displaystyle(\frac{U}{I})$
+		$\rightarrow$~Schlecht!
 		\item Mit \lstinline!\left(! und \lstinline!\right)!: automatische Größe
 		
-		\lstinline!\left(\frac{U}{I}\right)! \textrightarrow\ $\displaystyle\left(\frac{U}{I}\right)$
+		\lstinline!\left(\frac{U}{I}\right)!
+		$\rightarrow$~$\displaystyle\left(\frac{U}{I}\right)$
 		\item Geht auch mit \lstinline![ ]!, \lstinline!\{ \}!, \lstinline!< >!
 		\item \emph{Wichtig:} Es muss ein \lstinline!\left! \emph{und} ein \lstinline!\right! geben! (Müssen aber nicht die gleichen Zeichen sein)
 		\item Es gibt spezielle Mathe-Schriftarten
@@ -507,15 +513,15 @@
 		\end{itemize}
 		\item Für "längere" Funktionsnamen gibt es Befehle:
 		
-		\lstinline!\sin x! \textrightarrow~$\sin x$
+		\lstinline!\sin x! $\rightarrow$~$\sin x$
 		
-		\lstinline!sin x! \textrightarrow~$sin x = s \cdot i \cdot n \cdot x$ (falsch!)
+		\lstinline!sin x! $\rightarrow$~$sin x = s \cdot i \cdot n \cdot x$ (falsch!)
 		\item Es gibt keine x-Achse, nur eine $x$-Achse!
 		\item Das $\mathrm{d}$ bei Differentialen ($\mathrm{d}x$) aufrecht!\footnote<.->{\texttt{\textbackslash,} ist ein kleiner Abstand.}
 		
-		\lstinline!\int f(x) \, \mathrm{d}x! \textrightarrow\ $\displaystyle\int f(x) \, \mathrm{d}x$
+		\lstinline!\int f(x) \, \mathrm{d}x! $\rightarrow$\ $\displaystyle\int f(x) \, \mathrm{d}x$
 		
-		\lstinline!\frac{\mathrm{d}f}{\mathrm{d}x}! \textrightarrow~$\displaystyle\frac{\mathrm{d}f}{\mathrm{d}x}$
+		\lstinline!\frac{\mathrm{d}f}{\mathrm{d}x}! $\rightarrow$~$\displaystyle\frac{\mathrm{d}f}{\mathrm{d}x}$
 		\item Einheiten aufrecht: {\rmfamily$\SI{2}{\kg} > \SI{1}{\kg}$} (für Einheiten gibt es ein \LaTeX-Paket)
 	\end{itemize}
 \end{frame}
@@ -604,7 +610,7 @@
 \begin{frame}[<+->][fragile]
 	\frametitle{Tabellen und Abbildungen}
 	\begin{itemize}
-		\item Tabelle (vgl.\ \lstinline!align!):
+		\item Tabelle (vgl.~\lstinline!align!):
 		
 		\adjustbox{scale=0.7}{
 			\begin{minipage}[c]{0.7\textwidth}
@@ -628,13 +634,12 @@
 		\item "float"-Umgebungen: \lstinline!\begin{table} ... \end{table}!, \lstinline!\begin{figure} ... \end{figure}!
 		\item Die Platzierung der Tabellen/Abbildungen mit \lstinline!table! bzw.\ \lstinline!figure! ist \emph{nicht} an derselben Stelle des Textes! (normalerweise: zu Beginn der Seite)
 		\item Das ist auch gut, denn man schreibt nicht "in der folgenden Abbildung…", sondern: "in Abbildung 3…"
-		\textrightarrow~automatische Verweise
+		$\rightarrow$~automatische Verweise
 		\item Beeinflussung der Platzierung: \lstinline!\begin{figure}[htbp]!
 		
 		\lstinline![h]!: "here", \lstinline![t]!: "top", \lstinline![b]!: "bottom", \lstinline![p]!: "(separate) page"
 	\end{itemize}
 \end{frame}
-
 
 \begin{frame}[<+->][fragile]
 	\begin{itemize}
@@ -684,7 +689,8 @@
 	\begin{itemize}
 		\item Mit \lstinline!\label{<name>}! wird ein (eindeutiger!) Name vergeben
 		\item Will man auf die/das entsprechende Tabelle/Bild verweisen, benutzt man \lstinline!\cref{<name>}!\footnote<.->{\texttt{\textbackslash cref} ist besser als das normale \texttt{\textbackslash ref} und benötigt das \texttt{cleveref}-Paket.}
-		\item "\lstinline!\cref{mond} zeigt den Mond!" \textrightarrow\ "{\rmfamily\cref{mond} zeigt den Mond}"
+		\item "\lstinline!\cref{mond} zeigt den Mond!"
+		$\rightarrow$~"{\rmfamily\cref{mond} zeigt den Mond}"
 		\item Art des Verweises wird automatisch eingefügt!
 		\item \emph{Wichtig:} \lstinline!\label{...}! nach \lstinline!\caption{...}!!
 	\end{itemize}
@@ -742,7 +748,7 @@
 	\begin{itemize}
 		\item Mehrere Nennungen möglich:
 		
-		\lstinline!\cref{eq:einstein,eq:planck}! \textrightarrow\ {\rmfamily\cref{eq:einstein,eq:planck}}
+		\lstinline!\cref{eq:einstein,eq:planck}! $\rightarrow$\ {\rmfamily\cref{eq:einstein,eq:planck}}
 	\end{itemize}
 \end{frame}
 
@@ -801,7 +807,7 @@
 			\item \lstinline!\includegraphics[angle=<winkel>]{...}!: Rotieren
 		\end{itemize}
 		\item Optionen kombinierbar
-		\item \lstinline!\includegraphics[scale=0.2, angle=140]{fig2.pdf}! \textrightarrow\ \rlap{\includegraphics[scale=0.2, angle=140]{res/fig2.pdf}}
+		\item \lstinline!\includegraphics[scale=0.2, angle=140]{fig2.pdf}! $\rightarrow$\ \rlap{\includegraphics[scale=0.2, angle=140]{res/fig2.pdf}}
 	\end{itemize}
 \end{frame}
 
@@ -818,7 +824,7 @@
 		\item Sichere Zeichen:\footnote<.->{Allgemein: Die meisten ASCII-Zeichen} a–z, A–Z, 0–9, \_, -
 		\item Es können auch Pfade mit Verzeichnissen angegeben werden, z.\,B.\ \lstinline!\includegraphics{bilder/tolles_bild.png}!
 		
-		\textrightarrow~Unterordner für Bilder etc.\ ist zu empfehlen; Übersichtlichkeit!
+		$\rightarrow$~Unterordner für Bilder etc.\ ist zu empfehlen; Übersichtlichkeit!
 	\end{itemize}
 \end{frame}
 
@@ -865,22 +871,22 @@
 		\item \lstinline!\SI{zahl}{einheit}!, \lstinline!\num{zahl}!, \lstinline!\si{einheit}!
 		\item \lstinline!\SI{5.42}{\m\per\s\squared}!
 		\WarningFilter{latexfont}{Font shape}%
-		\textrightarrow~{\rmfamily\SI{5.42}{\m\per\s\squared}}
+		$\rightarrow$~{\rmfamily\SI{5.42}{\m\per\s\squared}}
 		\DeactivateWarningFilters
 		\item Auch möglich (aber Anzeige nicht konfigurierbar):\\
 		\lstinline!\SI{3,14}{m/s^2}!
-		\textrightarrow~{\rmfamily\SI{3,14}{m/s^2}}
+		$\rightarrow$~{\rmfamily\SI{3,14}{m/s^2}}
 		\item Eingabe von Punkt oder Komma als Dezimalseparator ist egal, es kommt das Richtige heraus
-		\item Gruppierung von langen Zahlen: \lstinline!\num{9461846582}! \textrightarrow~{\rmfamily\num{9461846582}}
+		\item Gruppierung von langen Zahlen: \lstinline!\num{9461846582}! $\rightarrow$~{\rmfamily\num{9461846582}}
 		\item scientific notation: \lstinline!\SI{1,5e4}{\m}!
-		\textrightarrow~{\rmfamily\SI{1,5e4}{\m}}
+		$\rightarrow$~{\rmfamily\SI{1,5e4}{\m}}
 		\item Unsicherheiten: \lstinline!\SI{2,71 +- 0,2}{\cm}!
-		\textrightarrow~{\rmfamily\SI{2,71 +- 0,2}{\cm}}
+		$\rightarrow$~{\rmfamily\SI{2,71 +- 0,2}{\cm}}
 		\item Intervalle: \lstinline!\SIrange{400}{800}{\nm}!
-		\textrightarrow~{\rmfamily\SIrange{400}{800}{\nm}}
+		$\rightarrow$~{\rmfamily\SIrange{400}{800}{\nm}}
 		\item Auflistungen:\\
 		\lstinline!\SIlist{100; 200; 250}{\MHz}!
-		\textrightarrow~{\rmfamily\SIlist{100; 200; 250}{\MHz}}
+		$\rightarrow$~{\rmfamily\SIlist{100; 200; 250}{\MHz}}
 	\end{itemize}
 \end{frame}
 
@@ -936,11 +942,10 @@
 	\end{itemize}
 \end{frame}
 
-
 \begin{frame}[<+->][fragile]
 	\begin{columns}<.->
 		\lstset{basicstyle=\footnotesize\ttfamily, frame=L, numbers=left, xleftmargin=0.5cm}
-		\column{0.55\textwidth}
+		\column{0.58\textwidth}
 		\begin{lstlisting}
 		\begin{figure}
 		    \begin{subfigure}{0.45\textwidth}
@@ -958,25 +963,26 @@
 		    \caption{Die gesamte Abbildung.}
 		\end{figure}
 		\end{lstlisting}
-		\column{0.44\textwidth}
+		\column{0.45\textwidth}
 		\begin{figure}
-			\subfloat[Eine Abbildung.]{%
-			\begin{minipage}{0.45\textwidth}
-		        \centering\LARGE$\Phi$
-		    \end{minipage}}
+			\begin{subfigure}{0.45\textwidth}
+				\centering\LARGE$\Phi$
+				\caption{Eine Abbildung.}
+		    \end{subfigure}
 		    % keine Leerzeile
 		    % → nebeneinander
-			\subfloat[Eine weitere Abbildung.]{%
-			\begin{minipage}{0.45\textwidth}
+			\begin{subfigure}{0.45\textwidth}
 				\centering\LARGE$\Xi$
-			\end{minipage}}
+				\caption{Eine weitere Abbildung.}
+			\end{subfigure}
 
 			\caption{Die gesamte Abbildung.}
 		\end{figure}
 	\end{columns}
 	
 	\bigskip
-	\visible<+->{\emph{Wichtig:} \lstinline!subfigure! bzw.\ \lstinline!subtable! verhält sich wie ein in den Fließtext eingefügtes Bild \textrightarrow\ auf Leerzeilen (=~Absätze) achten}
+	\visible<+->{\emph{Wichtig:} \lstinline!subfigure! bzw.\ \lstinline!subtable! verhält sich wie ein in den Fließtext eingefügtes Bild
+	$\rightarrow$~auf Leerzeilen (=~Absätze) achten}
 \end{frame}
 
 \section{\hologo{BibTeX}}
@@ -1021,7 +1027,7 @@
 		}
 		\end{lstlisting}
 		\item Mit (z.\,B.) \lstinline!\autocite{<name>}! oder \lstinline!\footcite{<name>}! wird zitiert
-		\item "\lstinline!Nolting\footcite[Seite 42]{nolting2011grundkurs}!" \textrightarrow~"Nolting\footcite[Seite 42]{nolting2011grundkurs}"
+		\item "\lstinline!Nolting\footcite[Seite 42]{nolting2011grundkurs}!" $\rightarrow$~"Nolting\footcite[Seite 42]{nolting2011grundkurs}"
 	\end{itemize}
 \end{frame}
 
@@ -1053,59 +1059,97 @@
 
 \begin{frame}[<+->]
 	\frametitle{Weitere Infos und Selbsthilfe}
-	
+
 	\begin{description}
 		\item[\LaTeX-Wikibook] Hilfreiches \LaTeX-Tutorial (englisch)
-		
+
 		\url{https://en.wikibooks.org/wiki/LaTeX}
 		\item[CTAN] "Comprehensive TeX Archive Network": Katalog aller bekannten \LaTeX-Pakete inkl.\ Dokumentation (meist PDF)
-		
+
 		\url{https://www.ctan.org}
+		\item["Cheat Sheet"] \url{https://ctan.org/pkg/latex-refsheet} (englisch)
 		\item[FAQ-Listen] \url{http://projekte.dante.de/DanteFAQ} (deutsch)
-		
+
 		\url{http://www.tex.ac.uk} (englisch)
 		\item[\TeX\ Stack Exchange] Q\,\&\,A-Seite zu \TeX\ und \alt<+(1)->{\LaTeX\ (englisch)}{\tikzmark{start}\LaTeX (eng\tikzmark{end}lisch)};
 		bei spezifischen Problemen:
 		Suchen oder selbst eine Frage stellen
-		
+
 		\url{https://tex.stackexchange.com}
 		\begin{tikzpicture}[remember picture, overlay]
 			\node<+(-1)| handout:0>[draw, line width=2pt, ellipse, inner ysep=10pt, yshift=3pt, fit={(pic cs:start) (pic cs:end)}] {};
 		\end{tikzpicture}
 		\item[\texttt{golatex.de}] \LaTeX-Forum (deutsch)
-		
+
 		\url{http://golatex.de}
 		\item[Offizielle \LaTeX-Hilfe-Sammlung] Anleitungen auf der offiziellen \LaTeX-Seite
-		
+
 		\url{https://www.latex-project.org/help}
 	\end{description}
 \end{frame}
 
 \begin{frame}[<+->]
 	\begin{description}
-		\item[DANTE e.\,V.] \TeX-Anfänger-Seite von DANTE (Deutschsprachige Anwendervereinigung \TeX\ e.\,V.) 
-		
+		\item[DANTE e.\,V.] \TeX-Anfänger-Seite von DANTE (Deutschsprachige Anwendervereinigung \TeX~e.\,V.) 
+
 		\url{https://www.dante.de/tex/TeXAnfaenger.html}
 		\item[TUG] \TeX-Anfänger-Seite der TUG (\TeX\ Users Group, englisch) 
-		
+
 		\url{https://tug.org/begin.html}
+		\item[Symbole] Gezeichnete Symbole erkennen lassen:
+
+		\url{http://detexify.kirelabs.org}
 	\end{description}
 	\visible<+->{\strong{Andere Vorlagen/Hilfeseiten zum Praktikum:}}
 	\begin{description}
-		\item[Prof.\ Donath] Seite von Prof.\ Donath zum Grundpraktikum
-		
-		\url{https://www.uni-muenster.de/Physik.PI/Donath/Studieren/anleitung_experimentelle_uebungen.html}
 		\item[Protokoll-Vorlage] \LaTeX-Vorlagen zu Protokollen und Abschlussarbeiten von Michael Entrup (AG~Kohl) auf GitHub
-		
+
 		\url{https://github.com/m-entrup/LaTeX-Vorlagen}
 		\item[Vorlage der Fachschaft Physik Karlsruhe] Vorlage für Protokolle in Karlsruhe (nicht getestet, aber evtl.\ gut als Vergleich)
-		
+
 		\url{https://fachschaft.physik.kit.edu/drupal/content/latex-vorlagen}
 	\end{description}
 \end{frame}
 
 \begin{frame}[<+->]
-	\vfuzz=6pt
+	\frametitle{Weitere Online-Dienste}
+
+	\hfuzz=18pt
+	\begin{columns}<.->[onlytextwidth]
+		\column{0.65\textwidth}
+		2~Online-Dienste, die das Arbeiten mit {\LaTeX} komplett im Browser ermöglichen:
+		\begin{description}[<.->]
+			\item[ShareLaTeX] \url{https://www.sharelatex.com}
+			\item[Overleaf] \url{https://www.overleaf.com}
+		\end{description}
+		Die beiden Firmen sind jedoch vor Kurzem fusioniert und die Angebote werden demnächst verschmelzen.
+		\column{0.4\textwidth}
+		\hspace{-3mm}
+		\includegraphics[width=\textwidth]{res/overleaf_plus_sharelatex.png}
+	\end{columns}
+
+	\medskip
+
+	\begin{columns}<.->[t, onlytextwidth]
+		\column{0.5\textwidth}
+		Vorteile:
+		\begin{itemize}
+			\item Sehr einfache Bedienung (keine nervige Installation!)
+			\item Teilen/Kollaboration mit anderen
+			\item Zugriff/Bearbeitung von jedem Gerät möglich
+			\item (Eingeschränkte) Nutzung kostenlos möglich
+		\end{itemize}
+		\column{0.5\textwidth}
+		Nachteile:
+		\begin{itemize}
+			\item Bindung an einen externen Dienstleister
+			\item Einschränkungen bei kostenloser Nutzung (Speicherplatz, Anzahl Kollaboratoren)
+			\item Evtl.\ geht nicht alles, was mit voller Installation möglich ist
+		\end{itemize}
+	\end{columns}
+\end{frame}
+
+\begin{frame}[<+->]
 	\frametitle{Materialien vom \LaTeX-Kurs}
 	
 	\centering
@@ -1113,11 +1157,11 @@
 	\strong{Unsere Vorlage für Protokolle und diese Folien}\\
 	gibt es gleich oder unter
 	
-	\url{https://www.uni-muenster.de/imperia/md/content/physik_fsphys/latex-kurs/dateien_teilnehmer_2016.zip}
+	\url{https://www.uni-muenster.de/imperia/md/content/physik_fsphys/latex-kurs/dateien_teilnehmer_2017.zip}
 	
 	bzw.\
 	
-	\url{https://tinyurl.com/latex-kurs-2016}
+	\url{https://go.wwu.de/t299b}
 	
 	\vspace{-1ex}
 	\includegraphics[height=0.6\textheight]{res/qrcode_dateien.pdf}
@@ -1131,10 +1175,10 @@
 	\begin{itemize}
 		\item Programm zum Zeichnen von Funktionen und zur Darstellung von Daten mit sehr~(!) vielen Funktionen
 		\item Kann insbesondere auch "Fit"-Funktion aus Messpunkten berechnen
-		\item Textbasiert \textrightarrow~Befehlseingabe über die Kommandozeile
+		\item Textbasiert $\rightarrow$~Befehlseingabe über die Kommandozeile
 		\item Ausgabe der Diagramme in vielen Formaten, z.\,B.\ PDF
 		
-		\textrightarrow\ Einbinden in \LaTeX-Dokumente
+		$\rightarrow$~Einbinden in \LaTeX-Dokumente
 		\item Leider etwas gewöhnungsbedürftige Mathe-Syntax…\footnote<.->{Fortran-ähnlich; werdet ihr im 4.~Semester noch genauer kennenlernen…}
 		\item Zum Nachlesen: \strong{Gnuplot-Dokumentation} (PDF) auf\\
 		\url{http://gnuplot.info/documentation.html} (sehr ausführlich!)
@@ -1216,7 +1260,7 @@
 		
 		\visible<+->{\strong{Achtung bei Division!} Gnuplot verwendet standardmäßig Integer-Division, d.\,h.\ \lstinline|1/2|~=~\lstinline|0|!
 		
-		\textrightarrow~Zur Sicherheit immer Kommazahlen verwenden: \lstinline|1./2.|~=~\lstinline|0.5|}
+		$\rightarrow$~Zur Sicherheit immer Kommazahlen verwenden: \lstinline|1./2.|~=~\lstinline|0.5|}
 		\item Mehrere Plots in einem Graphen durch Kommas:
 		\begin{lstlisting}[gobble=8]
 		plot 'datei.csv' using 1:2 title 'Daten', g(x) + 3 title 'Fit', exp(3 * sin(x)) + x**3 title 'Theorie'
@@ -1227,18 +1271,22 @@
 \begin{frame}[<+->][fragile]
 	\lstset{language=Gnuplot, literate={}}
 
+	\begin{visibleenv}<+->
 	Beispiel für Fit:
 	\begin{lstlisting}
 	fit m * x + b 'datei.csv' using 1:2 via m, b
 	\end{lstlisting}
-	
+	\end{visibleenv}
+
+	\begin{visibleenv}<+->
 	\strong{Vorsicht} bei nichtlinearen Fits: Es kann sein, dass gnuplot keinen guten Fit findet (Fit-Fehler)\\
-	\textrightarrow~Sinnvolle Startwerte für Parameter angeben!
+	$\rightarrow$~Sinnvolle Startwerte für Parameter angeben!
 	\begin{lstlisting}[gobble=4]
 	m = 10
 	b = 4.1e4 # = 41000
 	fit m*x + b 'datei.csv' using 1:2 via m, b
 	\end{lstlisting}
+	\end{visibleenv}
 
 	\centering
 	\begin{columns}<.->

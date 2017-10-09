@@ -1,5 +1,5 @@
 % Autor: Simon May
-% Datum: 2016-10-13
+% Datum: 2017-10-04
 
 % --- Pakete einbinden
 % --- Pakete erweitern LaTeX um zusätzliche Funktionen.
@@ -7,14 +7,21 @@
 
 % Silbentrennung etc.; Sprache wird durch Option bei \documentclass festgelegt
 \usepackage{babel}
-% Verwendung der Zeichentabelle T1 (Sonderzeichen etc.)
-\usepackage[T1]{fontenc}
-% Legt die Zeichenkodierung der Eingabedatei fest, z.B. UTF8
-\usepackage[utf8]{inputenc}
-% Schriftart
-\usepackage{lmodern}
-% Zusätzliche Sonderzeichen
-\usepackage{textcomp}
+\usepackage{iftex}
+\ifLuaTeX
+	% Schriftart (Latin Modern)
+	\usepackage{fontspec}
+	\fontspec{Latin Modern Roman}
+\else
+	% Verwendung der Zeichentabelle T1 (für Sonderzeichen etc.)
+	\usepackage[T1]{fontenc}
+	% Legt die Eingabe-Zeichenkodierung fest, z.B. UTF-8
+	\usepackage[utf8]{inputenc}
+	% Schriftart (Latin Modern)
+	\usepackage{lmodern}
+	% Zusätzliche Sonderzeichen
+	\usepackage{textcomp}
+\fi
 
 % Nutzen von +, -, *, / in \setlength u.ä. (z.B. \setlength{\a + 3cm})
 \usepackage{calc}
@@ -23,7 +30,7 @@
 % Optionen für eigene definierte Befehle
 \usepackage{xparse}
 
-% Verbessertes Aussehen von Text
+% Verbessertes Aussehen des Schriftbilds durch kleine Anpassungen
 \usepackage{microtype}
 % Automatische Formatierung von Daten
 \usepackage[useregional]{datetime2}
@@ -44,22 +51,22 @@
 \usepackage{amssymb}
 % Weitere Mathebefehle
 \usepackage{mathtools}
-% "Schöne" Brüche im Fließtext
+% „Schöne“ Brüche im Fließtext
 \usepackage{xfrac}
 % Ermöglicht die Nutzung von \SI{Zahl}{Einheit} u.a.
 \usepackage{siunitx}
 % Definition von Unicode-Symbolen; Nach [utf8]inputenc laden!
 \usepackage{newunicodechar}
 % Unicode-Formeln mit pdfLaTeX
-\input{tex_files/99_pdflatex_unicode-math.tex}
+\input{tex/99_pdflatex_unicode-math.tex}
 
 % Farben
 \usepackage{xcolor}
-% Zum flexiblen Einbinden von Grafiken (\includegraphics)
+% Einbinden von Grafiken (\includegraphics)
 \usepackage{graphicx}
 % .tex-Dateien mit \includegraphics einbinden
 \usepackage{gincltex}
-% Mehr erlaubte Zeichen in Dateinamen für graphicx
+% Größere Freiheiten bei Dateinamen mit \includegraphics
 \usepackage{grffile}
 % Abbildungen im Fließtext
 \usepackage{wrapfig}
@@ -68,23 +75,27 @@
 % Abbildungen nebeneinander (subfigure, subtable)
 \usepackage{subcaption}
 
-% Verlinkt Textstellen im PDF-Dokument
+% Verlinkt Textstellen im PDF-Dokument (sollte am Ende geladen werden)
 \usepackage[unicode]{hyperref}
 % „Schlaue“ Referenzen (nach hyperref laden!)
 \usepackage{cleveref}
 
 
 % --- Einstellungen
-% -- latex
-% Nummerierung der Formeln entsprechend der Section (z.B. 1.1)
-\numberwithin{equation}{section}
+% -- LaTeX/KOMA
 % 1,5-facher Zeilenabstand
 \onehalfspacing
-
-% -- koma-script
-% Anpassen des Textes bei captions
-\addtokomafont{captionlabel}{\small\bfseries}
+\recalctypearea
+% Schrift bei Bildunterschriften ändern
 \addtokomafont{caption}{\small}
+\addtokomafont{captionlabel}{\bfseries}
+% Nummerierung der Formeln entsprechend des Abschnitts (z.B. 1.1)
+\numberwithin{equation}{section}
+% „Verwaiste“ Zeilen am Seitenanfang/-Ende stärker vermeiden
+\clubpenalty=1000
+\widowpenalty=1000
+% Auf mehrere Seiten aufgespaltene Fußnoten stärker vermeiden
+\interfootnotelinepenalty=3000
 
 % -- csquotes
 % Anführungszeichen automatisch umwandeln
@@ -114,4 +125,33 @@
 \IfFileExists{res/literatur.bib}{
 	\addbibresource{res/literatur.bib}
 }{}
+
+\AtEndPreamble{
+	% Kopf- und Fußzeile konfigurieren
+	\ifthenelse{\boolean{showHeader}}{
+		\KOMAoptions{headsepline}
+		\recalctypearea
+		\automark{section}
+		% Innenseite der Kopfzeile
+		\ihead{\headmark}
+		% Mitte der Kopfzeile
+		\chead{}
+		% Außenseite der Kopfzeile
+		\ohead{\usekomafont{pagehead}\varAutor}
+	}{}
+	% Innnenseite der Fußzeile
+	\ifoot{}
+	% Mitte der Fußzeile          
+	\cfoot{-~\pagemark~-}
+	% Außenseite der Fußzeile
+	\ofoot{}
+
+	% Metadaten für die PDF-Datei
+	\hypersetup{
+		pdftitle={Versuchsprotokoll: \varName},
+		pdfauthor={\varAutor},
+		pdfsubject={Grundpraktikum},
+		pdfkeywords={Physik, Münster, Praktikum, Versuchsprotokoll}
+	}
+}
 
