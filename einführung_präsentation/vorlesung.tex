@@ -1,7 +1,3 @@
-% Einführungs-Vorlesung für den LaTeX-Kurs (2017-10-06)
-% Autor: Simon May
-% Datum: 2017-10-04
-
 \input{einstellungen.tex}
 \vfuzz=6pt
 
@@ -167,17 +163,18 @@
 		\smallskip
 		\rmfamily
 		\# \$ \^{} \& \_ \{ \} \~{} \textbackslash{} \%
-		\item \lstinline!{}! erzeugen \LaTeX-Gruppen; Beschränkung der Wirkung von Befehlen:
+		\item \lstinline!{}! erzeugen sog.~Gruppen.
+		Diese beschränken die Wirkung von Einstellungen/Befehlen:
 		
 		\begin{minipage}[c]{0.45\textwidth}
 			\begin{lstlisting}
-			{Dieser Text \bfseries
-			ist fett} und dieser nicht
+			{Dieser Text \tiny
+			ist klein} und dieser nicht
 			\end{lstlisting}
 		\end{minipage}
 		\begin{minipage}[c]{0.45\textwidth}
-			\justifying\rmfamily
-			{Dieser Text \bfseries ist fett} und dieser nicht
+			\raggedright\rmfamily
+			{Dieser Text \tiny ist klein} und dieser nicht
 		\end{minipage}
 	\end{itemize}
 \end{frame}
@@ -258,12 +255,12 @@
 		\begin{center}
 		\tikzstyle{block}=[rectangle, draw, fill=white, text width=5em, text centered, rounded corners]
 		\begin{tikzpicture}[node distance=3cm]
-		\coordinate (start);
-		\node [block] (quelltext) {Quelltext (\texttt{.tex})};
-		\node [block, right of=quelltext] (pdflatex) {\texttt{pdflatex}};
-		\node [block, right of=pdflatex] (pdf) {PDF-Dokument};
-		\draw [->] (quelltext) -- (pdflatex);
-		\draw [->] (pdflatex) -- (pdf);
+			\coordinate (start);
+			\node [block] (quelltext) {Quelltext (\texttt{.tex})};
+			\node [block, right of=quelltext] (pdflatex) {\texttt{pdflatex}};
+			\node [block, right of=pdflatex] (pdf) {PDF-Dokument};
+			\draw [->] (quelltext) -- (pdflatex);
+			\draw [->] (pdflatex) -- (pdf);
 		\end{tikzpicture}
 		\end{center}
 		\item Das muss u.\,U.\ mehrmals gemacht werden (z.\,B.\ bei Verweisen)
@@ -316,7 +313,9 @@
 	\begin{itemize}
 		\item Textgröße: \lstinline!\tiny \scriptsize \footnotesize \small \normalsize \large \Large \LARGE \huge \Huge!
 		
-		(Achtung: Textgröße gilt, bis sie wieder geändert wird $\rightarrow$~Gruppierung \lstinline!{...}! verwenden!)
+		(Achtung: Textgröße gilt, bis sie wieder geändert wird
+		$\rightarrow$~Gruppierung \lstinline!{...}! verwenden!
+		Beispiel: \lstinline!{\LARGE ...}!)
 		
 		{\rmfamily
 		\tiny tiny \scriptsize scriptsize \footnotesize footnotesize \small small \normalsize normalsize \large large \Large Large \LARGE LARGE \huge huge \Huge Huge}
