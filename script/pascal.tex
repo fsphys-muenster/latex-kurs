@@ -1,0 +1,206 @@
+\section{Gliederung}
+\label{sec:Gliederung}
+\subsubsubsection{asdf}
+\label{sec:asdf}
+
+\subsection{Unterabschnitt}
+\label{sec:Unterabschnitt}
+
+\verb+\section{}+ mit \verb+\label{sec:}+ als Abschnitt\\
+\verb+\subsection{}+ mit \verb+\label{sec:}+ als Unterabschnitt\\
+\verb+\subsubsection{}+ mit \verb+\label{sec:}+ als Unter-Unterabschnitt
+
+\subsubsection{Unter-Unterabschnitt}
+\label{sec:UnterUnterabschnitt}
+
+\verb+\paragraph{}+ mit \verb+\label{sec:}+ als Absatz ohne Nummerierung
+
+\paragraph{Absatz}
+\label{sec:Absatz}
+Short-Cut: [STRG]+[ALT]+[S]\\
+wichtig: keine Sonderzeichen ins Label
+
+\newpage
+\section{Aufzählungen}
+\label{sec:Aufzaehlungen}
+
+\subsection{Einfache Aufzählung}
+\label{sec:EinfacheAufzaehlung}
+
+\begin{itemize}
+	\item Short-Cut für die Aufzählung: [STRG]+[ALT]+[Z]
+	\item Short-Cut für \verb+ \item+: [STRG]+[ALT]+[E]
+\end{itemize}
+
+\subsection{Nummerierte Aufzählung}
+\label{sec:nummmerierteAufzaehlung}
+
+\begin{enumerate}
+	\item Short-Cut für die nummerierte Aufzählung: [STRG]+[ALT]+[N]
+	\item Short-Cut für \verb+ \item+: [STRG]+[ALT]+[E]
+\end{enumerate}
+
+\subsection{Beschreibung}
+\label{sec:Beschreibung}
+
+\begin{description}
+\item[erster Begriff] Hierfür gibt es einen Shortcut
+\item[zweiter Begriff] lediglich für die neuen Aufzählungen
+\item[dritter Begriff] usw.
+\end{description}
+
+Wie man in \ref{sec:nummerii....}
+
+%\newcounter{ale}
+%\newcommand{\abc}{\item[\alph{ale})]\stepcounter{ale}}
+%\newenvironment{liste}{\begin{itemize}}{\end{itemize}}
+%\newcommand{\aliste}{\begin{liste} \setcounter{ale}{1}}
+%\newcommand{\zliste}{\end{liste}}
+%\newenvironment{abcliste}{\aliste}{\zliste}
+
+%\begin{abcliste}
+%\abc 111 
+%\abc 222
+%\abc 333 
+%\end{abcliste}
+
+\newpage
+\section{Gleitobjekte}
+\label{sec:Gleitobjekte}
+
+\subsection{Abbildungen}
+\label{sec:Abbildungen}
+
+\subsubsection{Einfache Abbildung}
+\label{sec:EinfacheAbbildung}
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=3cm]{Fig1.pdf}
+	\caption{Dies ist eine Sonne}
+	\label{fig:Fig1}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.30\textwidth]{Fig1.pdf}
+	\caption{Erste Abbildung, eine Sonne.}
+	\label{fig:Fig1}
+\end{figure}
+
+\begin{description}
+\item[h] here, setzt die Abbildung an die zugehörige Stelle, wenn es das Layout erlaubt
+\item[t] top, Abbildung wird an den Kopf der Seite gesetzt
+\item[b] bottom, Abbildung wird an den Fuß der Seite gesetzt
+\item[p] page, für die Abbildugn wird eine sog. Gleitobjektseite erstellt
+\item[H] Here, die Abbildung wird unabhängig von optischen oder Layoutaspekten genau an dieser Stelle eingebunden
+\end{description}
+
+\subsubsection{textumflossene Abbildung}
+\label{sec:textumflosseneAbbildung}
+
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.\\
+\begin{wrapfigure}{r}{0.35\textwidth}
+	\includegraphics[width=0.30\textwidth]{Fig1.pdf}
+	\caption{Zweite Abbildung, wieder eine Sonne.}
+	\label{fig:Fig2}
+\end{wrapfigure}
+Sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat, duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.\\
+
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.
+
+\subsubsection{seitliche Caption}
+\label{sec:seitlicheCaption}
+
+\begin{SCfigure}[3.0][tb]
+		\includegraphics[width=0.3\textwidth]{Fig2.pdf}
+	\caption{Dritte Abbildung, diesmal ein Mond. Der klare Vorteil von seitlichen Captions ist die Trennung vom Text sowie die Platzersparnis bei besonders schmalen Abbildungen.}
+	\label{fig:Fig3}
+\end{SCfigure}
+
+\subsubsection{Mehrere Abbildungen gleichzeitig einbinden: Minipage}
+\label{sec:MehrereAbbildungenGleichzeitigEinbinden}
+
+\begin{figure}[H]
+\begin{minipage}[htb]{8cm}
+	\centering
+		\includegraphics[width=0.6\textwidth]{Fig1.pdf}
+	\caption{Links die Sonne}
+	\label{fig:Fig4}
+\end{minipage}
+\hfill
+\begin{minipage}[hbt] {8cm}
+	\centering
+		\includegraphics[width=0.6\textwidth]{Fig2.pdf}
+	\caption{und rechts der Mond}
+	\label{fig:Fig5}
+\end{minipage}	
+\end{figure}
+
+\newpage
+\subsection{Tabellen}
+\label{sec:Tabellen}
+
+\subsubsection{Grundlegende Tabelle}
+\label{sec:GrundlegendeTabelle}
+
+\begin{table}[htbp]
+	\centering
+		\begin{tabular}{|l|c|r|}
+		\hline
+			1. Spalte & 2. Spalte & 3. Spalte \\ \hline
+			links & zentriert & rechts \\ \hline
+		\end{tabular}
+	\caption{Tabelle 1}
+	\label{tab:Tab1}
+\end{table}
+
+\subsubsection{Zeilen- und Spaltenvariationen}
+\label{sec:ZeilenUndSpaltenvariationen}
+
+\begin{table}[htbp]
+	\centering
+		\begin{tabular}{|l|l|l|}
+		\hline
+			1. Spalte & 2. Spalte & 3. Spalte \\ \hline
+			\multicolumn{3}{|c|}{Zellenverbindung} \\ \hline
+			links & zentriert & rechts \\ \hline
+		\end{tabular}
+	\caption{Tabelle 2}
+	\label{tab:Tab2}
+\end{table}
+
+
+\begin{table}[H]
+	\centering
+ \begin{tabular}{|c|c|c|c|}
+  \hline
+   Spalte 1 & Spalte 2 & Spalte 3 & Spalte 4 \\ 
+   \cline{1-1} 1 & 2 & 3 & 4 \\ \hline
+               1 & 2 & 3 & 4 \\  
+   \cline{3-4} 1 & 2 & 3 & 4 \\ \hline 
+ \end{tabular}
+ \caption{Tabelle 3}
+ \label{tab:Tab3}
+\end{table}
+
+\newpage
+\section{Verzeichnisse einbinden}
+\label{sec:VerzeichnisseEinbinden}
+\tableofcontents
+\newpage
+\begin{thebibliography}{}
+\bibitem[1]{lit1} G. Binnig 
+\bibitem[2]{lit2} J. Bardeen
+\end{thebibliography}
+
+\bibliography{latex}
+
+
+\cite{lit2}
+
+\newpage
+\section{Referenzen}
+\label{sec:Referenzen}
+für Gliederung, Abbildungen, Tabellen, Gleichungen: \verb+ \ref{sec:xy}, +\\ \verb+\ref{fig:xy}, \ref{tab:xy}, \ref{eq:xy}+\\
+für Zitationen: \verb+ \cite{lit1}+

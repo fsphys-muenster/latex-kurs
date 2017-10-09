@@ -1,0 +1,15 @@
+\section{Eigene Befehle definieren}
+
+Man kann unter Zuhilfenahme von \verb+\newcommand{Name}{Befehlfolge}+ aus mehreren Befehlen einen neuen erzeugen. Dabei kann man einen Befehl ganz ohne Parameter definieren:\\
+\verb+\newcommand{\datestamp}{Version: \today}+ liefert, wenn man \verb+\datestamp+ aufruft:\\
+\newcommand{\datestamp}{Version: \today}
+\datestamp
+
+Manchmal möchte man auch Parameter an den Befehl übergeben. Z. B. gibt es keinen Befehl, um einen Spaltenvektor bequem zu schreiben. Man kann ihn aber sich mit dem folgenden Code generieren:\\
+\verb+\newcommand{\veccc}[3]{\begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}}+
+wobei die Zahl der \verb+c+'s im Namen die Dimension ist, aber vor allem der Tatsache Rechnung trägt, dass der Befehl \verb+\vec+ schon existiert. In eckigen klammern gibt man die Zahl der Parameter an, die der Befehl erwarten soll, diese erreicht man dann mit Raute $+$ Nummer:\\
+\newcommand{\veccc}[3]{\begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}}
+\verb+$\veccc{1}{2}{0}$+ liefert $\veccc{1}{2}{0}$.
+
+Definitionen von neuen Befehlen können durchaus mitten im Text stehen, oder auch vor \verb+\begin{document}+. Es ist aber zum Zwecke der Übersichtlichkeit guter Brauch, neue Befehle am Anfang des Dokuments zu gruppieren.\\
+Sollte der gewählte Name schon besetzt sein, wird es einen Fehler geben. Man kann den Namen überschreiben\footnote{Besser gesagt, überdecken. Entfernt man die Neudefinition, ist die alte wieder da.}, indem man statt \verb+newcommand+ numehr \verb+renewcommand+ verwendet.
