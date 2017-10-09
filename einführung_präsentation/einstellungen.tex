@@ -4,29 +4,36 @@
 
 \usepackage{silence}
 \WarningFilter{csquotes}{Using preliminary 'polyglossia' interface.}
-% biblatex-Warnung harmlos, footnote-patching wird nur für "ibid"-Stile gebraucht
+% biblatex-Warnung harmlos, footnote-patching wird nur für „ibid“-Stile gebraucht
 % vgl. https://tex.stackexchange.com/questions/202988/beamer-patching-footnotes-warning
 %      https://tex.stackexchange.com/questions/108511/gb4e-biblatex-error-patching-footnotes-failed
 \WarningFilter{biblatex}{Patching footnotes failed.}
 
-\usepackage{xcolor}
-\usepackage{csquotes}
-\usepackage{datetime}
-\usepackage{siunitx}
-\usepackage{ragged2e}
-\usepackage{adjustbox}
-\usepackage{wrapfig}
-\usepackage{hologo}
-\usepackage{tikz}
-\usepackage{listingsutf8}
-\usepackage{xfrac}
 \usepackage{microtype}
+\usepackage{selnolig}
+
+\usepackage{xcolor}
+\usepackage{gincltex}
+\usepackage{wrapfig}
+\usepackage{grffile}
 % subcaption (noch?) inkompatibel mit beamer!
-% => "compatibity=false" für subcaption-Paket notwending
-% Hier als Ersatz subfig mit "caption=false" verwendet
+% => „compatibity=false“ für subcaption-Paket notwending
+% Hier als Ersatz subfig mit „caption=false“ verwendet
 % vgl. https://tex.stackexchange.com/questions/125579/subcaption-with-beamer
 %      https://tex.stackexchange.com/questions/31906/subcaption-package-compatibility-issue
 \usepackage[caption=false]{subfig}
+
+\usepackage{hologo}
+\usepackage{csquotes}
+\usepackage[useregional]{datetime2}
+\usepackage{siunitx}
+\usepackage{ragged2e}
+\usepackage{adjustbox}
+
+\usepackage{xfrac}
+\usepackage{tikz}
+\usepackage{listingsutf8}
+\usepackage{lstautogobble}
 \usepackage[backend=biber, style=authortitle]{biblatex}
 
 \usepackage{hyperref}
@@ -55,7 +62,10 @@
 	fraction-function=\sfrac,
 	detect-all
 }
+% Notwendig, damit das \micro (µ) die richtige Schriftart hat
 \AtBeginDocument{\sisetup{math-rm=\mathrm, text-rm=\rmfamily}}
+% -- tikz
+\usetikzlibrary{shapes.geometric,tikzmark,fit}
 % -- listings
 \let\listingsfont\ttfamily
 \colorlet{keywordcolor}{purple!60!black}
@@ -100,12 +110,14 @@
 	showspaces=false,
 	% Alle Leerzeichen behalten
 	keepspaces=true,
-	% "Normale" Anführungszeichen: ""
+	% „Normale“ Anführungszeichen: ""
 	upquote=true,
 	% Lange Zeilen aufbrechen
 	breaklines=true,
 	% Zeilen an Whitespace aufbrechen
 	breakatwhitespace=true,
+	% Führende Einrückung automatisch entfernen
+	autogobble,
 }
 
 \lstset{
@@ -124,5 +136,9 @@
 		{\{}{\textcolor{bracescolor}{\{}}1
 		{\}}{\textcolor{bracescolor}{\}}}1,
 }
-% --- Befehle
+
+% --- Neue/eigene Befehle
+\let\strong\textbf
 \newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=ellipse, draw, inner sep=2pt] (char) {#1};}}
+

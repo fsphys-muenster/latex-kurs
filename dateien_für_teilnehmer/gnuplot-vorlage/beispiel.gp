@@ -6,7 +6,7 @@ set terminal pdf
 # Werte mit Komma als Dezimal-Separator einlesen (Linux)
 set decimalsign locale 'de_DE.UTF8'
 # Werte mit Komma als Dezimal-Separator einlesen (Windows)
-#set decimalsign locale "german"
+#set decimalsign locale 'german'
 # Dezimalbrüche mit Komma ausgeben
 set decimalsign ','
 # Zwischenschritte auf x-Achse anzeigen

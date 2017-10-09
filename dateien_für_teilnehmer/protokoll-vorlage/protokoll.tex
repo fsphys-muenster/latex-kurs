@@ -1,10 +1,10 @@
 % LaTeX-Vorlage für Versuchsprotokolle
 % Autor: Simon May
-% Datum: 2015-08-05
+% Datum: 2016-10-13
 
-% Es gibt die Dokumenttypen scrartcl ("Artikel"), scrreprt ("Bericht"),
-% scrbook ("Buch") und scrlttr2 ("Brief"). Diese gehören zum KOMA-Script,
-% bieten mehr Optionen als die "Standardklassen" und sollten besonders für
+% Es gibt die Dokumenttypen scrartcl („Artikel“), scrreprt („Bericht“),
+% scrbook („Buch“) und scrlttr2 („Brief“). Diese gehören zum KOMA-Script,
+% bieten mehr Optionen als die „Standardklassen“ und sollten besonders für
 % deutsche Texte benutzt werden.
 % Natürlich gibt es noch weitere Klassen, z.B. beamer für Präsentationen.
 \documentclass[
@@ -18,7 +18,7 @@
 	%twoside,
 	% Zweispaltig
 	%twocolumn,
-	% Schriftgröße (beliebige Größen mit "fontsize=Xpt")
+	% Schriftgröße (beliebige Größen mit „fontsize=Xpt“)
 	12pt,
 	% schreibt die Papiergröße korrekt ins Ausgabedokument
 	pagesize,
@@ -28,6 +28,8 @@
 	toc=bibliography,
 	% Abbildungsverzeichnis etc. unnummeriert im Inhaltsverzeichnis aufführen
 	toc=listof,
+	% \caption bei Tabellen immer als Überschrift setzen
+	captions=tableheading,
 	automark
 ]{scrartcl}
 

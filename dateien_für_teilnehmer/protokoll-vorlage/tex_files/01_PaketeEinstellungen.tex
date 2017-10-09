@@ -1,8 +1,9 @@
 % Autor: Simon May
-% Datum: 2015-08-05
+% Datum: 2016-10-13
 
 % --- Pakete einbinden
-% --- Pakete erweitern LaTeX um zusätzliche Funktionen. Dies ist ein Satz nützlicher Pakete.
+% --- Pakete erweitern LaTeX um zusätzliche Funktionen.
+%     Dies ist ein Satz nützlicher Pakete.
 
 % Silbentrennung etc.; Sprache wird durch Option bei \documentclass festgelegt
 \usepackage{babel}
@@ -15,8 +16,6 @@
 % Zusätzliche Sonderzeichen
 \usepackage{textcomp}
 
-% Einige LaTeX-Bugfixes
-\usepackage{fixltx2e}
 % Nutzen von +, -, *, / in \setlength u.ä. (z.B. \setlength{\a + 3cm})
 \usepackage{calc}
 % Wird benötigt, um \ifthenelse zu benutzen
@@ -27,12 +26,12 @@
 % Verbessertes Aussehen von Text
 \usepackage{microtype}
 % Automatische Formatierung von Daten
-\usepackage{datetime}
+\usepackage[useregional]{datetime2}
 % Wird für Kopf- und Fußzeile benötigt
 \usepackage{scrlayer-scrpage}
 % Einfaches Wechseln zwischen unterschiedlichen Zeilenabständen
 \usepackage{setspace}
-% Optionen für Listen (enumerate, itemize, ...)
+% Optionen für Listen (enumerate, itemize, …)
 \usepackage{enumitem}
 % Automatische Anführungszeichen
 \usepackage{csquotes}
@@ -71,7 +70,7 @@
 
 % Verlinkt Textstellen im PDF-Dokument
 \usepackage[unicode]{hyperref}
-% "Schlaue" Referenzen (nach hyperref laden!)
+% „Schlaue“ Referenzen (nach hyperref laden!)
 \usepackage{cleveref}
 
 

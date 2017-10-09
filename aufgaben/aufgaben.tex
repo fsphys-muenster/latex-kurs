@@ -1,6 +1,6 @@
-% Aufgaben für den LaTeX-Kurs (2015-08-07)
+% Aufgaben für den LaTeX-Kurs (2016-10-13)
 % Autor: Simon May
-% Datum: 2015-08-07
+% Datum: 2016-10-13
 
 \documentclass[a4paper, 12pt, headsepline, pagesize, parskip=half-, headlines=3.1]{scrartcl}
 
@@ -15,21 +15,23 @@
 
 \usepackage{selnolig}
 \usepackage{microtype}
-\usepackage{xcolor}
 \usepackage{scrlayer-scrpage}
 \usepackage{lastpage}
-\usepackage{datetime}
+\usepackage[useregional]{datetime2}
+
 \usepackage{csquotes}
 \usepackage{siunitx}
 \usepackage{enumitem}
+\usepackage{xcolor}
 \usepackage{wrapfig}
+\usepackage{grffile}
 \usepackage{float}
 \usepackage{listingsutf8}
 \usepackage[backend=biber, style=verbose]{biblatex}
 \usepackage{xfrac}
 \usepackage{subcaption}
 
-\usepackage[unicode]{hyperref}
+\usepackage[unicode, pdfusetitle]{hyperref}
 \usepackage{cleveref}
 
 % --- Paket-Einstellungen
@@ -72,11 +74,11 @@
 \newenvironment{aufgabe*}[1][]{\stepcounter{aufgabe}
 \noindent\textbf{Aufgabe \arabic{aufgabe}.} #1}{\bigskip}
 
-\begin{document}
-
 \title{Einführung in \LaTeX: Aufgaben}
 \author{Simon May\\\email{simon.may@uni-muenster.de}}
-\date{\formatdate{7}{8}{2015}}
+\date{\DTMdate{2016-10-14}}
+
+\begin{document}
 
 \maketitle
 
@@ -269,6 +271,7 @@
 	\includegraphics[width=5cm, angle=\kursangle]{res/answer.jpg}
 	
 	\emph{Hinweis:} Der Winkel ist \SI{\kursangle}{\degree}.
+	\medskip
 	\item Erstellt die folgende Abbildung mit Unterabbildungen\\
 	(zweites Bild: \texttt{8bit\_mario.png}):
 	
@@ -290,7 +293,7 @@
 	\item Erzeugt den folgenden Text mit eingebettetem Bild (\texttt{logo.pdf}):
 \end{aufgabe}
 
-
+\vspace{-2ex}
 \enlargethispage{\baselineskip}
 
 Passend zum Internationalen Jahr des Lichts hat die Fachschaft Physik mit Herrn Prof.\ Dr.\ Michael Rohlfing den Lehrenden ausgezeichnet, der im vergangenen Jahr den Studierenden Elektromagnetismus, Optik und die spezielle Relativitätstheorie, also die Physik des Lichts, näher bringen konnte.
