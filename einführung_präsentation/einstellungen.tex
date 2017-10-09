@@ -1,8 +1,51 @@
+\usepackage[no-math]{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{german}
+
+\usepackage{silence}
+\WarningFilter{csquotes}{Using preliminary 'polyglossia' interface.}
+% biblatex-Warnung harmlos, footnote-patching wird nur für "ibid"-Stile gebraucht
+% vgl. https://tex.stackexchange.com/questions/202988/beamer-patching-footnotes-warning
+%      https://tex.stackexchange.com/questions/108511/gb4e-biblatex-error-patching-footnotes-failed
+\WarningFilter{biblatex}{Patching footnotes failed.}
+
+\usepackage{xcolor}
+\usepackage{csquotes}
+\usepackage{datetime}
+\usepackage{siunitx}
+\usepackage{ragged2e}
+\usepackage{adjustbox}
+\usepackage{wrapfig}
+\usepackage{hologo}
+\usepackage{tikz}
+\usepackage{listingsutf8}
+\usepackage{xfrac}
+\usepackage{microtype}
+% subcaption (noch?) inkompatibel mit beamer!
+% => "compatibity=false" für subcaption-Paket notwending
+% Hier als Ersatz subfig mit "caption=false" verwendet
+% vgl. https://tex.stackexchange.com/questions/125579/subcaption-with-beamer
+%      https://tex.stackexchange.com/questions/31906/subcaption-package-compatibility-issue
+\usepackage[caption=false]{subfig}
+\usepackage[backend=biber, style=authortitle]{biblatex}
+
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+
+% --- Beamer-Einstellungen
+\usefonttheme{serif} % only math
+\setbeamertemplate{caption}[numbered]
+\usetheme[secheader]{Boadilla}
+\beamertemplatenavigationsymbolsempty
+
 % --- Paket-Einstellungen
 % -- csquotes
 \MakeOuterQuote{"}
 % -- hyperref
-\hypersetup{unicode}
+% nur URLs einfärben
+\colorlet{linkcolor}{blue!35!black}
+\hypersetup{unicode, colorlinks, linkcolor=, urlcolor=linkcolor}
 % -- siunitx
 \sisetup{
 	locale=DE,
@@ -14,31 +57,36 @@
 }
 \AtBeginDocument{\sisetup{math-rm=\mathrm, text-rm=\rmfamily}}
 % -- listings
+\let\listingsfont\ttfamily
 \colorlet{keywordcolor}{purple!60!black}
+\colorlet{emphcolor}{teal!70!black}
 \colorlet{commentcolor}{green!40!black}
 \colorlet{texcsicolor}{blue}
 \colorlet{texcsiicolor}{blue!50!black}
 \colorlet{bracescolor}{orange!70!black}
 \colorlet{dollarcolor}{red}
+\definecolor{stringcolor}{RGB}{47, 0, 255}
 \lstdefinestyle{mystandard}{
 	% Stelle UTF8-Input mit Latin1 dar
 	%inputencoding=utf8/latin1,
 	% Zeilennummern links
 	%numbers=left,
 	% Darstellung der Zeilennummern
-	numberstyle=\ttfamily,
+	numberstyle=\listingsfont,
 	% Rahmen (links)
 	%frame=L,
 	columns=flexible,
 	%xleftmargin=0.5cm,
 	% Default Schriftart/Größe
-	basicstyle=\small\ttfamily,
+	basicstyle=\small\listingsfont,
 	% Darstellung für Keywords
 	keywordstyle=\color{keywordcolor},
+	% Darstellung für betonte Bezeichner
+	emphstyle=\color{emphcolor},
 	% Darstellung für Kommentare
 	commentstyle=\color{commentcolor},
 	% Darstellung für Strings
-	stringstyle=\color[RGB]{ 47,   0, 255},
+	stringstyle=\color{stringcolor},
 	% Darstellung für TeX-Befehle; Stern: mit backslash
 	texcsstyle=*\color{texcsicolor},
 	texcsstyle=*[2]\color{texcsiicolor},
@@ -67,7 +115,7 @@
 	deletetexcs={begin, end, documentclass, usepackage},
 	moretexcs=[2]{begin, end, documentclass, usepackage},
 	moretexcs={
-		f, latex, Alpha,
+		f, latex, Alpha, eps,
 		part, chapter, subsection, subsubsection, paragraph, subparagraph, color, text, mathbb, mathcal, includegraphics, cref, autocite, footcite,
 		SI, num, si, SIrange, SIlist, m, per, s, squared, cm, nm, MHz, mega, Hz, cubed, tothe, mA, kV
 	},

@@ -1,37 +1,21 @@
-% Aufgaben für den LaTeX-Kurs (2014-10-10)
+% Aufgaben für den LaTeX-Kurs (2015-08-07)
 % Autor: Simon May
-% Datum: 2014-10-09
+% Datum: 2015-08-05
 % Quelle: https://de.wikipedia.org/wiki/Modell
 
-\documentclass[a4paper, 12pt]{scrartcl}
+\documentclass[a4paper, 12pt, pagesize]{scrartcl}
 
-\usepackage[no-math]{fontspec}
-\defaultfontfeatures{Ligatures=TeX}
+\usepackage{unicode-math}
 \usepackage{polyglossia}
 \setdefaultlanguage{german}
 
-\usepackage{xcolor}
 \usepackage{csquotes}
-\usepackage{datetime}
-\usepackage{xfrac}
-\usepackage{siunitx}
-\usepackage{subcaption}
-\usepackage{hyperref}
+\usepackage[unicode]{hyperref}
 \usepackage{cleveref}
 
 % --- Paket-Einstellungen
 % -- csquotes
 \MakeOuterQuote{"}
-% -- hyperref
-\hypersetup{unicode}
-% -- siunitx
-\sisetup{
-	locale=DE,
-	separate-uncertainty,
-	quotient-mode=fraction,
-	per-mode=fraction,
-	fraction-function=\sfrac
-}
 
 \begin{document}
 
@@ -49,7 +33,7 @@ Zudem werden gelegentlich weitere Merkmale diskutiert, wie Extension und Distort
 
 \section{Wortherkunft}
 
-Das Wort Modell entstand im Italien der Renaissance als ital. modello, hervorgegangen aus lat. modulus, einem Maßstab in der Architektur, und wurde bis ins 18. Jahrhundert in der bildenden Kunst als Fachbegriff verwendet. Um 1800 verdrängte Modell im Deutschen das ältere, direkt vom lat. modulus (Maß(stab)) entlehnte Wort Model (Muster, Form, z. B. Kuchenform), das noch im Verb ummodeln und einigen Fachsprachen und Dialekten fortlebt.
+Das Wort Modell entstand im Italien der Renaissance als ital. modello, hervorgegangen aus lat. modulus, einem Maßstab in der Architektur, und wurde bis ins 18.\ Jahrhundert in der bildenden Kunst als Fachbegriff verwendet. Um 1800 verdrängte Modell im Deutschen das ältere, direkt vom lat. modulus (Maß(stab)) entlehnte Wort Model (Muster, Form, z.\,B.\ Kuchenform), das noch im Verb ummodeln und einigen Fachsprachen und Dialekten fortlebt.
 
 \section{Modellbildung}
 
@@ -88,7 +72,7 @@ In der Modelltheorie der mathematischen Logik geht es nicht um eine Abbildung de
 
 In der Logik ist das Modell einer Formel F eine Bewertung, die F den Wahrheitswert <wahr> zuordnet. Man spricht auch davon, dass diese Bewertung die Formel erfüllt.[6] Das Modell eines Satzes (einer Formel) ist daher eine Interpretation, die den Satz (die Formel) erfüllt.
 
-Entsprechend ist das Modell einer Menge wohlgeformter Formeln die Interpretation durch Zuordnung von semantischen Werten zu den in den Formeln enthaltenen einfachen Ausdrücken, so dass alle Formeln den Wahrheitswert <wahr> erhalten, also eine Belegung, die die betreffende Menge verifiziert. Abstrakter kann man formulieren, dass wenn "$\Sigma$ eine Menge von L-Sätzen [ist]; eine L-Struktur, die jeden Satz in $\Sigma$ wahr macht, [\dots] ein Modell von $\Sigma$ [heißt]."
+Entsprechend ist das Modell einer Menge wohlgeformter Formeln die Interpretation durch Zuordnung von semantischen Werten zu den in den Formeln enthaltenen einfachen Ausdrücken, so dass alle Formeln den Wahrheitswert <wahr> erhalten, also eine Belegung, die die betreffende Menge verifiziert. Abstrakter kann man formulieren, dass wenn "$Σ$ eine Menge von L-Sätzen [ist]; eine L-Struktur, die jeden Satz in $Σ$ wahr macht, […] ein Modell von $Σ$ [heißt]."
 
 Das Modell eines Axiomensystems ist ein Gegenstandsbereich und eine Interpretation der undefinierten Grundbegriffe, bei der ein Axiomensystem wahr ist oder mit den Worten Carnaps:
 
@@ -120,6 +104,48 @@ Beispiele: ideales Gas, absolut schwarzer Körper, Massenpunkt, vollkommener Mar
 Die erkenntnistheoretische und logische Möglichkeit und Rechtfertigung der Zulässigkeit von Modellen ist nur eine Seite. Wesentlich ist letztlich die Rechtfertigung der Zulässigkeit der Fiktion durch die tätige Praxis, das heißt der praktische Nachweis, dass die mit Hilfe des Modells aufgebaute Theorie auf reale Objekte effektiv angewendet werden kann.
 
 Eine gesonderte Diskussion wird in der Wissenschaftstheorie darüber geführt, ob Modelle als Repräsentationen die Realität abbilden (Realismus), oder ob es sich nur um theoretische Konstruktionen handelt (Konstruktivismus).
+%
+%\subsection{Sozialwissenschaften}
+%Auch in den Sozialwissenschaften wird der Begriff des Modells gern verwendet. Zum Beispiel wird ein Theoriegebäude zur Analyse und Planung von Unterricht als ein „didaktisches Modell“ bezeichnet. Dieser modische Sprachgebrauch beruht wahrscheinlich auf der Analogie, die darin besteht, dass auch in der Entwicklung einer Handlungsanleitung die methodischen Schritte Formulierung, Erprobung, Validierung aufeinander folgen.
+%
+%Max Weber sprach vom Idealtypus in der sozialwissenschaftlichen Forschung und meinte damit nichts Anderes als ein abstraktes, idealisiertes Modell der Realität. Ein Idealtypus kann sowohl gesellschaftliche Strukturen (Demokratie oder mittelalterliche Stadt) als auch zeitliche Verläufe (Revolutionen oder Konjunkturmodelle) beschreiben.
+%
+%In der Wirtschaftswissenschaft dienen Modelle zur Beschreibung und Untersuchung von ökonomischen Strukturen und Prozessen. Zu den wichtigsten Annahmen für Modelle in der VWL gehören der vollkommene Markt und der Homo oeconomicus. Modelle können unter anderem nach folgenden Gesichtspunkten eingeteilt werden:
+%
+%\begin{itemize}
+%    \item dem Einsatzzweck (Beschreibungs-, Erklärungs-, Prognose-, Entscheidungs- oder Simulationsmodelle)
+%    \item dem Grad der Abstraktion (deterministische oder stochastische Modelle)
+%    \item statische und dynamische Modelle (mit diskreter bzw. kontinuierlicher Zeitberücksichtigung)
+%    \item Partial- und Totalmodelle (Modulation von realen Systemen in Teilen oder in seiner Gesamtheit)
+%    \item Stationäre Modelle und Wachstumsmodelle: Diese Unterscheidung ist zwar der Ersteren ähnlich, bezieht sich aber auf die Modelle der Konjunkturtheorie. Im Gegensatz zu den Wachstumsmodellen kennen die stationären Modelle keine Auf- und Abschwünge
+%    \item Mikroökonomische und makroökonomische Modelle: Die Ersteren werden häufig zur Fundierung makroökonomischer Aussagen benutzt
+%\end{itemize}
+%
+%\subsection{Psychologie}
+%In der Psychologie werden verschiedene „Modelle des Menschen“ unterschieden. Es handelt sich hierbei um Paradigmen, die sich in den Grundannahmen und der Methodologie unterscheiden.
+%
+%Der Modellbegriff spielt weiterhin in der Lerntheorie eine zentrale Rolle; auch die Pädagogische Psychologie thematisiert diese Lernform (siehe Lernen, Beobachtungslernen, Modelllernen, Imitationslernen, Lernen am Vorbild). Die Theorie vom Modelllernen oder vom Lernen am Modell erläutert, wie Verhalten zustande kommt, nämlich durch die Nachahmung des Verhaltens, das eine Person (das Modell) realisiert hat. Dabei spielt es z. B. eine Rolle, welches Verhältnis der Nachahmende zum Modell (Eltern, Lehrer, Erzieher usw.) hat oder wie erfolgreich ein Modell sein Verhalten (in sozialen Situationen) gestalten kann bzw. welches gesellschaftliche Ansehen ein Modell zeigt. Man kann davon ausgehen, dass insbesondere komplexe (soziale) Verhaltensketten durch Nachahmungslernen zustande kommen.
+%
+%Grundsätzlich hat die Lernforschung herausgefunden:
+%\begin{itemize}
+%    \item Haben Lernender und Modell ein gutes Verhältnis, werden Verhaltensweisen leichter übernommen. Der Zusammenhang spielt in Erziehungsprozessen eine herausragende Rolle. (siehe dazu: Erziehung)
+%    \item Ist das Modell selbst erfolgreich in diversen sozialen Situationen, wird auch sein Verhalten von Lernenden leichter übernommen.
+%    \item Modelle mit höherem Sozialprestige sind in der Regel wirksamer, was die Übernahme von Verhalten angeht.
+%    \item Übernommenes Verhalten, das in seiner sozialen Umgebung erfolgreich ist, wird vom Lernenden eher beibehalten (s. auch Lernen: operantes Konditionieren; Verstärkungslernen).
+%    \item Beobachtetes und nachgeahmtes Verhalten von großer Bedeutung (für den Nachahmer) wird eher beibehalten als Verhalten mit minderer Bedeutung.
+%    \item Unsichere und ängstliche Personen sind eher bereit, Verhalten von Modellen zu übernehmen.
+%\end{itemize}
+%
+%Feldtheorie: Der Psychologe Kurt Lewin (1890–1947) war ein großer Meister im Entwerfen von Modellen für komplexe Sachverhalte in der Psychologie (Feldtheorie in den Sozialwissenschaften, Bern 1963), etwa in den motivationspsychologischen Arbeiten.
+%
+%\subsection{Pädagogik}
+%Die Frage nach dem Modell ist in der Pädagogik vor allem die Frage nach dem Selbstverständnis des Erziehenden. (In der Alltagssprache verwendet man eher das Wort Vorbild.) Der agierende Erzieher muss sich die Frage gefallen lassen, ob er exakt das in seinem Verhalten realisiert, was er theoretisch und praktisch in Erziehungssituationen als angemessen bis optimal zu fordern bereit ist, um als Modell (Vorbild) fungieren zu können. Ist er nicht dazu bereit oder nicht in der Lage, mangelt es ihm nach allgemeinem Verständnis an Glaubwürdigkeit. Ein Erziehender, der vom Kind/Jugendlichen z. B. Vertrauen fordert, selbst aber kleinlich auf die Einhaltung von Vorschriften aus ist, die er womöglich selbst formuliert hat, produziert einen Widerspruch zwischen seinen Forderungen und dem konkreten Verhalten. Als Modell wäre er damit zutiefst unglaubwürdig.
+%
+%Erziehende, die viele Widersprüche dieser Art aufweisen, können in ihrer Tätigkeit nicht erfolgreich sein, da sie unweigerlich Konflikte mit den Kindern und Jugendlichen hervorrufen, die sie überdies schwer erklären oder rechtfertigen können. Glaubwürdiges Modell zu sein, erfordert viel Selbstkritik und Reflexion seiner Tätigkeit.
+%
+%Das glaubhafte Modell bildet also der Erzieher, der seine Werte, Erziehungsvorstellungen und Lehren nicht nur verbal vertritt, sondern für alle sichtbar lebt – vorerst einmal unabhängig davon, welche pädagogische Ideologie er vertritt. Da man nicht voraussetzen kann, dass ein Erziehender gänzlich ohne Fehl und Tadel wirken kann, müsste man in diesem Sinne einen Erzieher fordern, der seine internen Widersprüche auf ein akzeptables Maß reduziert, um ein glaubhaftes Modell werden zu können. Ein professionell handelnder Erzieher kann nur der sein, der seine Widersprüche zu reflektieren bereit und imstande ist.
+%
+%Ein Modell (Vorbild) von historischem Ausmaß etwa war Janusz Korczak, der mit den Kindern aus seinem Kinderheim im Warschauer Ghetto in die Gaskammer ging, obwohl ihm die Nazis angeboten hatten, er müsse die Waisen nicht begleiten. Er entschied sich aber dafür, die Kinder bei ihrem letzten Gang nicht allein zu lassen.
 
 \subsection{Informatik}
 In der Informatik dienen Modelle zum einen zur Abbildung eines Realitätsausschnitts, um eine Aufgabe mit Hilfe der Informationsverarbeitung zu lösen. Derartige Modelle heißen Domänenmodelle. Hierunter fallen z. B. Modelle für zu erstellende Software sowohl für deren Architektur (Architekturmodell) als auch deren Code (in Form von beispielsweise Programmablaufplandiagrammen) und Datenmodelle für die Beschreibung der Strukturen von zu verarbeitenden Daten aus betrieblicher/fachlogische Sicht oder aus technischer Datenhaltungssicht. Zum anderen können Modelle als Vorlage bei der Konzeption eines informatorischen Systems dienen, man spricht dann von Systemmodellen. Hierunter fallen insbesondere Referenzmodelle, die allgemein als Entwurfsmuster eingesetzt werden können. Referenzmodelle werden beispielsweise für die Konzeption konkreter Rechenanlagen, Netzwerkprotokolle, Data-Warehouse-Systeme und Portale herangezogen.

@@ -1,0 +1,38 @@
+% Autor: Simon May
+% Datum: 2015-08-05
+
+\begin{titlepage}
+	\vspace*{2.5cm}
+	\begin{center}
+		\Huge
+		\textbf{Versuchsprotokoll \varNum}
+
+		\LARGE
+		\varName
+
+		\vspace{0.5cm}
+		\large
+		\varDate
+
+		% Automatisch Bild für Titelseite einbinden, wenn es eine Datei namens
+		% "titelseite.*" gibt
+		\IfFileExists{res/titelseite}{
+			\vspace{0.5cm}
+			\includegraphics[0.5\textwidth]{res/titelseite}
+		}{
+			\vspace{4cm}
+		}
+
+		\vspace{1.5cm}
+		\varAuthor
+
+		\vspace{1cm}
+		\normalsize
+		\varGroup
+
+		\ifthenelse{\boolean{showEmail}}{
+			\protokollemailparse{\varEmail}
+		}{}  
+	\end{center}
+\end{titlepage}
+

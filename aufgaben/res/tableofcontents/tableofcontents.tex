@@ -1,37 +1,21 @@
-% Aufgaben für den LaTeX-Kurs (2014-10-10)
+% Aufgaben für den LaTeX-Kurs (2015-08-07)
 % Autor: Simon May
-% Datum: 2014-10-09
+% Datum: 2014-08-05
 % Quelle: https://de.wikipedia.org/wiki/Modell
 
-\documentclass[a4paper, 12pt]{scrartcl}
+\documentclass[a4paper, 12pt, pagesize]{scrartcl}
 
-\usepackage[no-math]{fontspec}
-\defaultfontfeatures{Ligatures=TeX}
+\usepackage{unicode-math}
 \usepackage{polyglossia}
 \setdefaultlanguage{german}
 
-\usepackage{xcolor}
 \usepackage{csquotes}
-\usepackage{datetime}
-\usepackage{xfrac}
-\usepackage{siunitx}
-\usepackage{subcaption}
-\usepackage{hyperref}
+\usepackage[unicode]{hyperref}
 \usepackage{cleveref}
 
 % --- Paket-Einstellungen
 % -- csquotes
 \MakeOuterQuote{"}
-% -- hyperref
-\hypersetup{unicode}
-% -- siunitx
-\sisetup{
-	locale=DE,
-	separate-uncertainty,
-	quotient-mode=fraction,
-	per-mode=fraction,
-	fraction-function=\sfrac
-}
 
 \begin{document}
 
@@ -49,7 +33,7 @@ Zudem werden gelegentlich weitere Merkmale diskutiert, wie Extension und Distort
 
 \section{Wortherkunft}
 
-Das Wort Modell entstand im Italien der Renaissance als ital. modello, hervorgegangen aus lat. modulus, einem Maßstab in der Architektur, und wurde bis ins 18. Jahrhundert in der bildenden Kunst als Fachbegriff verwendet. Um 1800 verdrängte Modell im Deutschen das ältere, direkt vom lat. modulus (Maß(stab)) entlehnte Wort Model (Muster, Form, z. B. Kuchenform), das noch im Verb ummodeln und einigen Fachsprachen und Dialekten fortlebt.
+Das Wort Modell entstand im Italien der Renaissance als ital. modello, hervorgegangen aus lat. modulus, einem Maßstab in der Architektur, und wurde bis ins 18.\ Jahrhundert in der bildenden Kunst als Fachbegriff verwendet. Um 1800 verdrängte Modell im Deutschen das ältere, direkt vom lat. modulus (Maß(stab)) entlehnte Wort Model (Muster, Form, z.\,B.\ Kuchenform), das noch im Verb ummodeln und einigen Fachsprachen und Dialekten fortlebt.
 
 \section{Modellbildung}
 
@@ -88,7 +72,7 @@ In der Modelltheorie der mathematischen Logik geht es nicht um eine Abbildung de
 
 In der Logik ist das Modell einer Formel F eine Bewertung, die F den Wahrheitswert <wahr> zuordnet. Man spricht auch davon, dass diese Bewertung die Formel erfüllt.[6] Das Modell eines Satzes (einer Formel) ist daher eine Interpretation, die den Satz (die Formel) erfüllt.
 
-Entsprechend ist das Modell einer Menge wohlgeformter Formeln die Interpretation durch Zuordnung von semantischen Werten zu den in den Formeln enthaltenen einfachen Ausdrücken, so dass alle Formeln den Wahrheitswert <wahr> erhalten, also eine Belegung, die die betreffende Menge verifiziert. Abstrakter kann man formulieren, dass wenn "$\Sigma$ eine Menge von L-Sätzen [ist]; eine L-Struktur, die jeden Satz in $\Sigma$ wahr macht, [\dots] ein Modell von $\Sigma$ [heißt]."
+Entsprechend ist das Modell einer Menge wohlgeformter Formeln die Interpretation durch Zuordnung von semantischen Werten zu den in den Formeln enthaltenen einfachen Ausdrücken, so dass alle Formeln den Wahrheitswert <wahr> erhalten, also eine Belegung, die die betreffende Menge verifiziert. Abstrakter kann man formulieren, dass wenn "$Σ$ eine Menge von L-Sätzen [ist]; eine L-Struktur, die jeden Satz in $Σ$ wahr macht, […] ein Modell von $Σ$ [heißt]."
 
 Das Modell eines Axiomensystems ist ein Gegenstandsbereich und eine Interpretation der undefinierten Grundbegriffe, bei der ein Axiomensystem wahr ist oder mit den Worten Carnaps:
 

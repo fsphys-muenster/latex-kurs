@@ -1,0 +1,61 @@
+% Autor: Simon May
+% Datum: 2015-08-07
+% Diese Datei bietet ein minimalistisches Grundgerüst für ein LaTeX-Dokument,
+% z.B. für die Bearbeitung der Aufgaben.
+
+\documentclass[
+	% Sprache für z.B. Babel
+	ngerman,
+	% Papierformat
+	a4paper,
+	% Schriftgröße (beliebige Größen mit "fontsize=Xpt")
+	12pt,
+	% Schreibt die Papiergröße korrekt ins Ausgabedokument
+	pagesize
+]{scrartcl}
+
+% Achtung: Die Reihenfolge der Pakete kann (leider) wichtig sein!
+% Insbesondere sollten (so wie hier) babel, fontenc und inputenc (in dieser
+% Reihenfolge) als Erstes und hyperref und cleveref (Reihenfolge auch hier
+% beachten) als Letztes geladen werden!
+
+% Silbentrennung etc.; Sprache wird durch Option bei \documentclass festgelegt
+\usepackage[shorthands=off]{babel}
+% Verwendung der Zeichentabelle T1 (Sonderzeichen etc.)
+\usepackage[T1]{fontenc}
+% Legt die Zeichenkodierung der Eingabedatei fest, z.B. UTF8
+\usepackage[utf8]{inputenc}
+% Schriftart
+\usepackage{lmodern}
+% Zusätzliche Sonderzeichen
+\usepackage{textcomp}
+
+% Mathepaket (intlimits: Grenzen über/unter Integralzeichen)
+\usepackage[intlimits]{amsmath}
+% Ermöglicht die Nutzung von \SI{Zahl}{Einheit} u.a.
+\usepackage{siunitx}
+% Zum flexiblen Einbinden von Grafiken (\includegraphics)
+\usepackage{graphicx}
+% Abbildungen im Fließtext
+\usepackage{wrapfig}
+% Abbildungen nebeneinander (subfigure, subtable)
+\usepackage{subcaption}
+% Zitieren, Bibliographie
+\usepackage{biblatex}
+
+% Verlinkt Textstellen im PDF-Dokument
+\usepackage[unicode]{hyperref}
+% "Schlaue" Referenzen (nach hyperref laden!)
+\usepackage{cleveref}
+
+% siunitx: Deutsche Ausgabe, Messfehler getrennt mit ± ausgeben
+\sisetup{
+	locale=DE,
+	separate-uncertainty
+}
+
+\begin{document}
+
+...
+
+\end{document}
