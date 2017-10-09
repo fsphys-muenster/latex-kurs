@@ -1,0 +1,23 @@
+\begin{titlepage}
+    \vspace*{4cm}
+    \begin{center}
+        \Huge
+        \textbf{Versuchsprotokoll \varNum}\\
+        \vspace{0.5cm}
+        \LARGE
+        \varName \\
+        \large
+        \varDate \\
+        \vspace{2.5cm}
+        \IfFileExists{res/titelseite.png}{
+            \cImage{res/titelseite.png}
+        } % Nach \IfFileExists muss eine Leerzeile eingefügt werden
+
+        \vspace{1.5cm}
+        \varAutor \\  
+        \vspace{1cm}
+        \normalsize
+        \varGruppe \\
+        \ifthenelse{\boolean{showEmail}}{\texttt{\varEmail}\\}{}  
+    \end{center}
+\end{titlepage}

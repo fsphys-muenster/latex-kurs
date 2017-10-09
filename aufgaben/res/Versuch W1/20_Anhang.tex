@@ -1,0 +1,85 @@
+\subsection{Fehlerrechnung%
+\label{sec:fehlerrechnung}}
+Die aufgrund der Unsicherheit in der Zeitmessung entstandenen Messunsicherheiten waren so gering, dass sie bei der Auswertung vernachlässigt wurden. Insbesondere waren sie in der grafischen Darstellung zu klein, um sichtbar zu sein.
+
+
+Bei der mehreren Messungen derselben Größe (hier: Volumendurchsatz des Kühlwassers) bestimmt sich die Unsicherheit des Mittelwerts aus einem möglichen systematischen Fehler $u$ und dem statistischen Fehler mit der Standardabweichung $s$, der Anzahl der Messungen $n$ und dem Korrekturfaktor $\tau$:
+\[\Delta a = u + \frac{\tau s}{\sqrt{n}}\]
+Dabei wurde $\tau$ für ein Vertrauensniveau von \SI{95,45}{\%} bzw. $2 \sigma$ gewählt.
+
+%\begin{table}[h]
+%	\centering
+%	\caption{Messunsicherheiten bei direkt gemessenen Größen.}
+%	\label{tab:unsicherheiten}
+%	\begin{tabular}{l | l}
+%		Größe				& Unsicherheit	\\ \hline\hline
+%		$U$ (Akkumulatoren)	& $\Delta U = \SI{0,1}{V}$ \\ \hline
+%		$R_a$ (Akkumulatoren)	& $\Delta R_a = \SI{10}{\%}$ \\ \hline
+%		$U$ (Gleich-/Wechselstrom)	& $\Delta U = \SI{1}{V}$ \\ \hline
+%		$I$ (Gleich-/Wechselstrom)	& $\Delta I = \SI{0,01}{A}$ \\ \hline
+%		$P$ (Gleich-/Wechselstrom)	& $\Delta P = \SI{1}{W}$ \\ \hline
+%		Wechselspannungsfrequenz $f$	& $\Delta f = \SI{1}{\%}$
+%	\end{tabular}
+%\end{table}
+%
+Bei aus Messwerten berechneten Größen muss zur Bestimmung der Unsicherheit der Größe die Fehlerfortpflanzung angewandt werden. Bei den folgenden Größen wurde dies durchgeführt. Es ergibt sich:
+
+\begin{sagesilent}
+W_R(c_W, rho, V, f, T) = c_W*rho*V*T/f
+var('V', latex_name="V'")
+delta_W_R = func_to_expr(gauss_error(W_R))
+
+P_el(U, I) = U * I
+delta_P_el = func_to_expr(gauss_error(P_el))
+
+epsilon(W_R, Q_1, Q_2) = abs(Q_2)/abs(Q_1-Q_2+W_R)
+delta_epsilon = func_to_expr(gauss_error(epsilon))
+
+eta(W, Q) = abs(W)/abs(Q)
+delta_eta = func_to_expr(gauss_error(eta))
+
+P_Z(F, f, r) = 2 * pi * f * F * r
+delta_P_Z = func_to_expr(gauss_error(P_Z))
+\end{sagesilent}
+
+Für die an das Wasser abgegebene Wärme bzw. die Reibungsarbeit:
+\[\Delta Q = \Delta W_R = \sage{delta_W_R}\]
+
+
+\begin{sagesilent}
+P(c_W,m_W,m)=c_W*m_W*m
+delta_P = func_to_expr(gauss_error(P))
+\end{sagesilent}
+Für die Heiz- und Kühlleistung:
+\[\Delta P = \sage{delta_P}\]
+
+
+\begin{sagesilent}
+Q_U(P, f)=P/f
+delta_Q_U = func_to_expr(gauss_error(Q_U))
+\end{sagesilent}
+Für die abgegebene Wärme pro Umlauf:
+\[\Delta Q_U = \sage{delta_Q_U}\]
+
+Für die Leistungszahl von Kältemaschine und Wärmepumpe:
+\begin{align*}
+\Delta \epsilon = 
+\Bigg(\Delta Q_2^{2} {\left(\frac{Q_{2}}{{\left| Q_{1} - Q_{2} + W_{R} \right|} {\left| Q_{2} \right|}} + \frac{{\left(Q_{1} - Q_{2} + W_{R}\right)} {\left| Q_{2} \right|}}{{\left| Q_{1} - Q_{2} + W_{R} \right|}^{3}}\right)}^{2} \\
++ \frac{\Delta Q_1^{2} {\left(Q_{1} - Q_{2} + W_{R}\right)}^{2} {\left| Q_{2} \right|}^{2}}{{\left| Q_{1} - Q_{2} + W_{R} \right|}^{6}} + \frac{\Delta W_R^{2} {\left(Q_{1} - Q_{2} + W_{R}\right)}^{2} {\left| Q_{2} \right|}^{2}}{{\left| Q_{1} - Q_{2} + W_{R} \right|}^{6}}\Bigg)^{\frac{1}{2}}
+\end{align*}
+
+Für die spezifische Wärmekapazität von Eis:
+\[\Delta c_E = \sage{func_to_expr(delta_c_E)}\]
+
+Für die elektrische Heizleistung:
+\[\Delta P_\text{el} = \sage{delta_P_el}\]
+
+Für den Wirkungsgrad der Wärmekraftmaschine:
+\[\Delta \eta = \sage{delta_eta}\]
+
+Für die Leistung beim Pronyschen Zaum:
+\[\Delta P_Z = \sage{delta_P_Z}\]
+
+
+
+Die jeweiligen berechneten Unsicherheiten sind in der Auswertung zu finden.

@@ -1,0 +1,80 @@
+% --- Paket-Einstellungen
+% -- csquotes
+\MakeOuterQuote{"}
+% -- hyperref
+\hypersetup{unicode}
+% -- siunitx
+\sisetup{
+	locale=DE,
+	separate-uncertainty,
+	quotient-mode=fraction,
+	per-mode=fraction,
+	fraction-function=\sfrac,
+	detect-all
+}
+\AtBeginDocument{\sisetup{math-rm=\mathrm, text-rm=\rmfamily}}
+% -- listings
+\colorlet{keywordcolor}{purple!60!black}
+\colorlet{commentcolor}{green!40!black}
+\colorlet{texcsicolor}{blue}
+\colorlet{texcsiicolor}{blue!50!black}
+\colorlet{bracescolor}{orange!70!black}
+\colorlet{dollarcolor}{red}
+\lstdefinestyle{mystandard}{
+	% Stelle UTF8-Input mit Latin1 dar
+	%inputencoding=utf8/latin1,
+	% Zeilennummern links
+	%numbers=left,
+	% Darstellung der Zeilennummern
+	numberstyle=\ttfamily,
+	% Rahmen (links)
+	%frame=L,
+	columns=flexible,
+	%xleftmargin=0.5cm,
+	% Default Schriftart/Größe
+	basicstyle=\small\ttfamily,
+	% Darstellung für Keywords
+	keywordstyle=\color{keywordcolor},
+	% Darstellung für Kommentare
+	commentstyle=\color{commentcolor},
+	% Darstellung für Strings
+	stringstyle=\color[RGB]{ 47,   0, 255},
+	% Darstellung für TeX-Befehle; Stern: mit backslash
+	texcsstyle=*\color{texcsicolor},
+	texcsstyle=*[2]\color{texcsiicolor},
+	% Tab-Breite
+	tabsize=4,
+	% Leerzeichen in Strings hervorheben
+	showstringspaces=false,
+	% Tabs hervorheben
+	showtabs=false,
+	% Leerzeichen hervorheben
+	showspaces=false,
+	% Alle Leerzeichen behalten
+	keepspaces=true,
+	% "Normale" Anführungszeichen: ""
+	upquote=true,
+	% Lange Zeilen aufbrechen
+	breaklines=true,
+	% Zeilen an Whitespace aufbrechen
+	breakatwhitespace=true,
+}
+
+\lstset{
+	language=[LaTeX]{TeX},
+	style=mystandard,
+	escapechar=|,
+	deletetexcs={begin, end, documentclass, usepackage},
+	moretexcs=[2]{begin, end, documentclass, usepackage},
+	moretexcs={
+		f, latex, Alpha,
+		part, chapter, subsection, subsubsection, paragraph, subparagraph, color, text, mathbb, mathcal, includegraphics, cref, autocite, footcite,
+		SI, num, si, SIrange, SIlist, m, per, s, squared, cm, nm, MHz, mega, Hz, cubed, tothe, mA, kV
+	},
+	literate=
+		{\$}{\textcolor{dollarcolor}{\$}}1
+		{\{}{\textcolor{bracescolor}{\{}}1
+		{\}}{\textcolor{bracescolor}{\}}}1,
+}
+% --- Befehle
+\newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}

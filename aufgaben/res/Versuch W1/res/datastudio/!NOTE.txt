@@ -1,0 +1,1 @@
+Daten im Gegensatz zu den Originaldateien auf 20 Messwerte/s reduziert, damit das beschissene DataStudio die FFT vernünftig macht

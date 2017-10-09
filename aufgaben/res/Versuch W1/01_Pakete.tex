@@ -1,0 +1,76 @@
+% --- Pakete einbinden
+% Pakete erweitern LaTeX um zusätzliche Funktionen. Dies ist ein Satz nützlicher Pakete.
+\usepackage{babel}                        % Silbentrennung nach neuer deutscher und englischer Rechtschreibung; Ausgewählt: ngerman (zuletztgenannt)
+\usepackage{iftex}
+\ifLuaTeX
+	\usepackage{fontspec}
+	\fontspec{Latin Modern Roman}         % Schriftart
+\else
+	\usepackage[T1]{fontenc}              % Verwendung der Zeichentabelle T1 (Sonderzeichen etc.)
+	\usepackage[utf8]{inputenc}           % Legt die Zeichenkodierung fest, z.B. UTF8
+	\usepackage{lmodern}                  % Schriftart
+	\usepackage{textcomp}
+	\usepackage{fixltx2e}
+\fi
+\usepackage{microtype}                    % Verbessertes Aussehen von Text
+\usepackage{csquotes}                     % Automatische Anführungszeichen
+\usepackage[intlimits]{amsmath}           % Mathepaket (Grenzen über/unter Integralzeichen)
+\usepackage{amssymb}                      % Symbole, mathbb etc.
+\usepackage{mathtools}                    % Weitere Mathebefehle
+\usepackage[
+	style=verbose-ibid,
+	backend=biber
+]{biblatex}                               % Zitieren, Bibliographie
+\usepackage[pdfpagelabels]{hyperref}      % Verlinkt Textstellen im PDF Dokument
+%\usepackage{xcolor}                      % Farben
+%\usepackage{tablefootnote}               % Fußnoten in Tabellen
+\usepackage[font=small,labelfont=bf,
+format=plain]{caption}                    % Darstellung für Caption
+\usepackage{subcaption}                   % Bilder nebeneinander
+\usepackage{xifthen}                      % Wird benötigt, um \ifthenelse zu benutzen
+\usepackage{graphicx}                     % Zum flexiblen Einbinden von Grafiken
+\usepackage{siunitx}                      % Ermöglicht die Nutzung von \SI{Zahl}{Einheit}
+\usepackage{setspace}                     % Einfaches Wechseln zwischen unterschiedlichen Zeilenabständen
+\usepackage{enumitem}                     % Optionen für Listen
+\usepackage{wrapfig}                      % Abbildungen im Fließtext
+\usepackage{gincltex}                     % .tex-Dateien mit \includegraphics einbiden
+\usepackage{scrpage2}                     % Wird für Kopf- und Fußzeile benötigt
+\usepackage{sagetex}                      % Sage-Befehle in LaTeX
+\usepackage{array}                        % Wird für die Ausrichtung der Tabellenspalten benötigt
+\usepackage{dcolumn}                      % Wird für die Ausrichtung der Tabellenspalten benötigt
+\usepackage{placeins}
+\usepackage{cleveref}                     % "Schlaue" Referenzen
+\usepackage{gnuplot-lua-tikz}             % gnuplot-Plots im TikZ-Format einbinden
+\usepackage{xparse}                       % Optionen für eigene definierte Befehle
+\usepackage{xfrac}                        % Brüche im Fließtext
+%\usepackage{breqn}                        % lange Gleichungen aufbrechen
+
+% --- Einstellungen
+% latex
+\onehalfspacing % 1,5-facher Zeilenabstand
+%\setlength{\headheight}{1.1\baselineskip}
+%\pdfimageresolution=96
+
+% Literaturverzeichnis (biblatex)
+\IfFileExists{res/literatur.bib}{
+	\addbibresource{res/literatur.bib}
+}
+
+% csquotes
+\MakeOuterQuote{"} % Anführungszeichen automatisch umwandeln
+
+% siunitx
+\sisetup{
+	locale=DE,
+	group-digits=false,
+	separate-uncertainty,
+	output-product=\cdot,
+	output-decimal-marker={,},
+	input-product=*
+}
+
+% cleveref
+\crefformat{footnote}{#2\footnotemark[#1]#3}
+\crefname{equation}{}{}
+\Crefname{equation}{}{}
+

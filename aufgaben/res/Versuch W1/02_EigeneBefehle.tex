@@ -1,0 +1,118 @@
+% Eigene Befehle eignen sich gut um Abkürzungen für lange Befehle zu erstellen. Die Syntax ist folgende:
+% \newcommand{neuer Befahl}{ein langer Befehl}
+% Das folgende Beispiel fügt ein Bild mit bestimmten vorgegebenen Optionen ein:
+\newcommand{\cImage}[1]{
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.50\textwidth]{#1}
+	\end{figure}
+}
+% #1 ist dabei ein Parameter, den man \cImage übergeben muss. In 10_Titelseite.tex wird dieser Befehl verwendet. Der Parameter ist dort Bilder/titelseite.jpg.
+% Benötigt man keine Parameter, dann lässt man [1] weg. Werden zusätzliche Parameter benötigt, dann kann man die Zahl auf maximal 9 erhöhen.
+
+% Ausrichtung der Tabellenspalten
+\newcolumntype{,}[1]{D{,}{,}{#1}}       % , in Tabellen untereinander stellen
+\newcolumntype{p}{D{p}{\pm}{-1}}        % +- in Tabellen untereinander stellen
+
+% Redefinitionen
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+
+\let\rightarrowold\rightarrow
+\let\leftarrowold\leftarrow
+\renewcommand{\rightarrow}{\ensuremath{\rightarrowold}}
+\renewcommand{\leftarrow}{\ensuremath{\leftarrowold}}
+
+\let\equivold\equiv
+\newcommand{\ident}{\equivold}
+\renewcommand{\equiv}{\Leftrightarrow}
+\renewcommand{\implies}{\Rightarrow}
+\renewcommand{\impliedby}{\Leftarrow}
+
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+\newcommand{\thetaold}{\theta}
+\newcommand{\phiold}{\phi}
+\newcommand{\epsilonold}{\epsilon}
+\renewcommand{\theta}{\vartheta}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+
+
+% % %
+\newcommand{\captionf}[1]{\caption[#1]{#1 \footnotemark}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\bigO}{\mathcal{O}}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\seq}[1]{\left (#1\right)}
+\newcommand{\series}[3]{\sum_{#1 = #2}^\infty #3}
+\newcommand{\arsinh}{\operatorname{arsinh}}
+\newcommand{\arcosh}{\operatorname{arcosh}}
+\newcommand{\artanh}{\operatorname{artanh}}
+\newcommand{\const}{\text{const.}}
+\newcommand{\pvec}[1]{\vec{#1}\mkern2mu\vphantom{#1}}
+
+\makeatletter
+\newcommand*{\diff}%
+		{\@ifnextchar^{\DIfF}{\DIfF^{}}}
+\def\DIfF^#1{%
+		\mathop{\mathrm{\mathstrut d}}%
+			\nolimits^{#1}\gobblespace
+}
+\def\gobblespace{%
+        \futurelet\diffarg\opspace}
+\def\opspace{%
+        \let\DiffSpace\!%
+        \ifx\diffarg(%
+                \let\DiffSpace\relax
+        \else
+                \ifx\diffarg[%
+                        \let\DiffSpace\relax
+                \else
+                        \ifx\diffarg\{%
+                                \let\DiffSpace\relax
+                        \fi\fi\fi\DiffSpace}
+
+\newcommand*{\pderiv}[3][]{\frac{\partial^{#1}#2}{\partial #3^{#1}}}
+\newcommand*{\deriv}[3][]{\frac{\diff^{#1}#2}{\diff #3^{#1}}}
+%\NewDocumentCommand\@fehlerfortpflanzung:deriv{m m}{%
+%	\left( \pderiv{#1}{#1} \right)^2
+%}
+%\NewDocumentCommand\@fehlerfortpflanzung:final{m}{%
+%	#1
+%}
+%\NewDocumentCommand\fehlerfortpflanzung{m >{\SplitList{;}} m}{%
+%	\begin{aligned}
+%		\displaystyle\Delta #1 &= \sqrt{\ProcessList{#2}{\@fehlerfortpflanzung:deriv{#1}}}\\
+%		&= \sqrt{\ProcessList{#2}{\@fehlerfortpflanzung:final}}
+%	\end{aligned}
+%}
+\NewDocumentCommand\set{mg}{%
+	\ensuremath{\left\{ #1 \IfNoValueTF{#2}{}{\;\middle|\; #2} \right\}}
+}
+\NewDocumentCommand\ceil{s O{} m}{%
+	\IfBooleanTF{#1} % starred
+		{#2\lceil#3#2\rceil} % \ceil*[..]{..}
+		{\left\lceil#3\right\rceil} % \ceil[..]{..}
+}
+\NewDocumentCommand\floor{s O{} m}{%
+	\IfBooleanTF{#1} % starred
+		{#2\lfloor#3#2\rfloor} % \floor*[..]{..}
+		{\left\lfloor#3\right\rfloor} % \floor[..]{..}
+}
+\NewDocumentCommand\colvec{mmg}{
+	\ensuremath{
+	\begin{pmatrix}
+		#1 \\
+		#2 \\
+		\IfValueTF{#3}{#3 \\}{}
+	\end{pmatrix}}
+}
