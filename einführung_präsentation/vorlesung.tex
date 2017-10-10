@@ -416,8 +416,8 @@
 			\item \lstinline!$ ... $!: Formel in der Textzeile ("inline")
 			
 			\lstinline!$a = b + c$!: $a = b + c$
-			\item \lstinline!\begin{equation} ... \end{equation}!: Nummerierte, abgesetzte Gleichung
-			\item \lstinline!\begin{align} ... \end{align}!: Mehrere nummerierte, abgesetzte, ausgerichtete Gleichungen
+			\item \lstinline!\begin{equation} ... \end{equation}!: \emph{Einzelne} nummerierte, abgesetzte Gleichung
+			\item \lstinline!\begin{align} ... \end{align}!: \emph{Mehrere} nummerierte, abgesetzte, \emph{ausgerichtete} Gleichungen
 		\end{itemize}
 		\item Im Mathemodus werden Leerzeichen ignoriert! Jeder Buchstabe wird als Formelzeichen verstanden
 		
@@ -425,6 +425,7 @@
 		\item Ausweg: \lstinline!\text{...}!
 		
 		\lstinline!$p V = \text{const.}$!: $p V = \text{\rmfamily const.}$
+		\item \strong{Achtung:} Absätze (Leerzeilen) sind in Mathe-Umgebungen verboten!
 	\end{itemize}
 \end{frame}
 
